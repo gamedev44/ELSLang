@@ -1,0 +1,191 @@
+
+___________.__         .__                           
+\_   _____/|  |   _____|  |      .__         .__     
+ |    __)_ |  |  /  ___/  |    __|  |___   __|  |___ 
+ |        \|  |__\___ \|  |__ /__    __/  /__    __/ 
+/_______  /|____/____  >____/    |__|        |__|    
+        \/           \/                              
+
+
+## english like scripting language made to be converted to c++ easily with a simple translator program 
+
+
+// Container (Variables)
+
+// Containers ar elike Storage Bins that are used to hold data of varying types as well as values and or information that can be referenced and manipulated later.
+
+// They can be declared using the 'var', 'let', or 'const' keywords.
+
+var myVar = "Hello"; // Declaring a variable with the 'var' keyword
+
+let myLet = "World"; // Declaring a variable with the 'let' keyword = data (can be reassigned & updated) 
+
+const myConst = "Hello World"; // Declaring a variable with the 'const'= data (cannot be reassigned and thus is constand and unchangeable)
+
+_____________________________________________________________________________________________
+==============================================================================================
+_________________________________________________________________________________
+
+
+
+
+_________________________________________________________________________________
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+// (Data Types)
+// There are several different data types in ELSL, including:
+// - Texts: a sequence of characters enclosed in quotes (single or double)
+// - Numbers: numeric values (integer or floating-point)
+// - Branch: true or false values
+// - Matrix: an ordered list of values enclosed in square brackets
+// - Objects: a collection of key-value pairs enclosed in curly braces
+// - EmptyValue: a value that represents nothing or no value
+// - Undefined: a value that represents a variable that has not been assigned a value
+// - Structures: like a big box with different sections for storing various types of things like additional data / values etc
+const myText = "Hello World"; // Declaring a string variable
+const myNumber = 42; // Declaring a number variable
+const myBranch = true; // Declaring a boolean variable
+const myArray = [1, 2, 3]; // Declaring an array variable
+const myObject = {name: "John", age: 30}; // Declaring an object variable
+const myNull = null; // Declaring a null variable
+let myUndefined; // Declaring an undefined variable
+
+
+// 'struct MyStruct' Declaring a sIMPLE STRUCTURE AND STORING DATA IN IT.
+struct MyStruct {
+  string name; // A section for names (text).
+  int age;     // A section for age (number).
+} myObject = {"John", 30};
+
+__________________________________________________________________________________________________
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
+// Statements
+_____________________________________________________________________________
+
+// If Statement
+// The if statement is used to execute a block of code if a condition is true.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+}
+
+_______________________________________
+
+
+____________________________________________________________
+
+// If-Else Statement
+// The if-else statement is used to execute one block of code if a condition is true, and another block of code if the condition is false.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+} else {
+  console.log("The boolean is false.");
+}
+
+______________________________________________________
+
+
+
+
+
+_______________________________________________________________________________________________
+
+// Else Statement
+// The else statement is used to execute a block of code if the condition in the if statement is false.
+if (myBoolean === false) {
+  console.log("The boolean is false.");
+} else {
+  console.log("The boolean is not false.");
+}
+
+
+________________________________________________________________
+
+
+
+
+
+
+_______________________________________________________________________________
+
+// Nested If-Else Statement
+// You can also nest if-else statements to create more complex conditions.
+if (myCondition === true ++ myNumber === 42) then {DisplayText("The condition is met as true and the number is 42.")
+  
+}Then myFunction
+} otherwise if myCondition === false {
+    console.log("Conditions Not Met Yet , the number is 42 though the The Condition is False.");
+  }
+} orelse {
+  console.log("The Condition is false and the number isnt equall to 42.");
+}
+
+
+
+
+_______________________________________________________________________________
+
++ is the addition operator. It is used to add two numbers together or concatenate two strings.
+
+- is the subtraction operator. It is used to subtract one number from another.
+
+* is the multiplication operator. It is used to multiply two numbers together.
+
+/ is the division operator. It is used to divide one number by another.
+
+% is the modulus operator. It is used to find the remainder of dividing one number by another.
+
+= is the assignment operator. It is used to assign a value to a variable.
+
+== is the equality operator. It is used to compare two values for equality, with type coercion.
+
+=== is the strict equality operator. It is used to compare two values for equality, without type coercion.
+
+!= is the inequality operator. It is used to compare two values for inequality, with type coercion.
+
+!== is the strict inequality operator. It is used to compare two values for inequality, without type coercion.
+
+> is the greater than operator. It is used to compare two values to see if the left operand is greater than the right operand.
+
+< is the less than operator. It is used to compare two values to see if the left operand is less than the right operand.
+
+>= is the greater than or equal to operator. It is used to compare two values to see if the left operand is greater than or equal to the right operand.
+
+<= is the less than or equal to operator. It is used to compare two values to see if the left operand is less than or equal to the right operand.
+
+&& is the logical AND operator. It is used to combine two or more conditions and returns true if both conditions are true.
+
+|OR| is the logical OR operator. It is used to combine two or more conditions and returns true if at least one of the conditions is true.
+
+|IsFalse| is the logical NOT operator. It is used to negate a condition and returns true if the condition is false.
+
+
+
+
+
+
+basic common syntax  or statements usable referances and commands built-in
+
+
+Get,Set,Combine
+
+Character,Player
+
+Controller,Keyboard,Button,DirectInput,Key
+
+OnPressed,OnReleased,OnCollide,OnHit,OnEvent,WhileHeld,OnClicked,OnDown,OnUp
+
+BeginPlay ,UponStartup , AfterFunction , Before , While , OnlyIf ,
+
+then
+
+
+
+
+
+
+
+
+

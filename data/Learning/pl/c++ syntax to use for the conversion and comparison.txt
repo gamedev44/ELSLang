@@ -1,0 +1,122 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Variables
+// Variables are like labeled jars where you store different things.
+
+// 'string myString' is a jar with a label 'myString' holding the text "Hello".
+string myString = "Hello";
+
+// 'int myInt' is a jar labeled 'myInt' holding the number 42.
+int myInt = 42;
+
+// 'bool myBool' is a jar labeled 'myBool' and it can only hold true or false. Now it holds true.
+bool myBool = true;
+
+// 'const string myConst' is a special jar labeled 'myConst'. Once you put "Hello World" in it, you can't change it.
+const string myConst = "Hello World";
+
+//==============================================================================================
+
+// Data Types
+// Data types tell you what kind of stuff you can put in your jars (variables).
+
+// 'string' is for storing text, like words or sentences.
+string myString2 = "Hello World";
+
+// 'int' is for storing whole numbers, no fractional parts.
+int myNumber = 42;
+
+// 'float' is for storing numbers that have parts, like 3.14.
+float myFloat = 3.14;
+
+// 'bool' is for storing just two things: true or false.
+bool myBoolean = true;
+
+// 'int[3]' is like having a row of 3 small jars, each can hold an integer.
+int myArray[3] = {1, 2, 3};
+
+// 'struct MyStruct' is like a big box with different sections for storing various types of things.
+struct MyStruct {
+  string name; // A section for names (text).
+  int age;     // A section for age (number).
+} myObject = {"John", 30};
+
+//==============================================================================================
+
+// Control Structures
+// These are like rules for making decisions and doing different things based on those decisions.
+
+// 'if' statement checks if something is true, then does something.
+if (myBoolean) {
+  cout << "The boolean is true." << endl;
+}
+
+// 'if-else' statement checks if something is true, does one thing, otherwise does another thing.
+if (myBoolean) {
+  cout << "The boolean is true." << endl;
+} else {
+  cout << "The boolean is false." << endl;
+}
+
+// 'Nested if-else' is like an 'if-else' inside another 'if-else'. It's used for more detailed decision making.
+if (myBoolean) {
+  if (myNumber == 42) {
+    cout << "The boolean is true and the number is 42." << endl;
+  } else {
+    cout << "The boolean is true but the number is not 42." << endl;
+  }
+} else {
+  cout << "The boolean is false." << endl;
+}
+
+//==============================================================================================
+
+// Operators
+// Operators are special symbols that tell the computer to do math or compare things.
+
+// '+' adds two numbers together or joins texts.
+// Example: 5 + 3 = 8 or "Hello" + "World" = "HelloWorld".
+
+// '-' subtracts one number from another.
+// Example: 5 - 3 = 2.
+
+// '*' multiplies two numbers.
+// Example: 5 * 3 = 15.
+
+// '/' divides one number by another.
+// Example: 6 / 2 = 3.
+
+// '%' finds the remainder after division.
+// Example: 5 % 2 = 1 (because 5 divided by 2 leaves a remainder of 1).
+
+// '=' puts the value on the right into the variable on the left.
+// Example: int a = 5; (Now 'a' holds the value 5).
+
+// '==' checks if two values are equal.
+// Example: 5 == 5 (This is true).
+
+// '!=' checks if two values are not equal.
+// Example: 5 != 3 (This is true).
+
+// '>' checks if the value on the left is greater than the one on the right.
+// Example: 5 > 3 (This is true).
+
+// '<' checks if the value on the left is less than the one on the right.
+// Example: 3 < 5 (This is true).
+
+// '>=' checks if the left value is greater than or equal to the right one.
+// Example: 5 >= 5 (This is true).
+
+// '<=' checks if the left value is less than or equal to the right one.
+// Example: 3 <= 5 (This is true).
+
+// '&&' is true if both conditions are true.
+// Example: (5 > 3) && (5 < 10) (This is true).
+
+// '||' is true if at least one of the conditions is true.
+// Example: (5 < 3) || (5 < 10) (This is true).
+
+// '!' inverts the truth value.
+// Example: !(5 < 3) (This is true because 5 is not less than 3).

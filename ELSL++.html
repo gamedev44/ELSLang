@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ELSL to C++ Translator</title>
+    <style>
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>ELSL to C++ Translator</h1>
+
+<!-- Input for custom ELSL code -->
+<textarea id="input" rows="10" cols="50"></textarea>
+
+<button id="translateButton">Translate</button>
+
+<!-- Output translated C++ code -->
+<div id="output"></div>
+
+<script>
+    // Fetch the translation data from the JSON file in the 'data' folder
+    var translations = {};
+
+    fetch('data/translated_with_ids.json')
+        .then(response => response.json())
+        .then(data => translations = data);
+
+    document.getElementById("translateButton").addEventListener("click", function() {
+        var input = document.getElementById("input").value;
+        var output = "";
+        
+        // Split the input into lines for processing
+        var lines = input.split("\\n");
+
+        for (var i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
+            var translatedLine = translations.ELSL.find(item => item.content === line);
+            
+            if (translatedLine) {
+                var cppLine = translations["C++"].find(item => item.id === translatedLine.id);
+                output += cppLine ? cppLine.content : line;
+            } else {
+                output += line; // Keep the line as is if no translation is found
+            }
+
+            output += "\\n";
+        }
+
+        // Update the output div
+        document.getElementById("output").innerText = output;
+    });
+</script>
+
+</body>
+</html>
