@@ -1,0 +1,41 @@
+{
+    // Variable types and data types
+    "var": "int",
+    "let": "int",
+    "const": "const",
+    "string": "std::string",
+    "number": "int",
+    "branch": "bool",
+    "matrix": "std::vector",
+    "object": "struct",
+
+    // Operators
+    "PLUS": "+",
+    "MINUS": "-",
+    "TIMES": "*",
+    "DIVIDE": "/",
+    "EQUAL": "==",
+    "NOTEQUAL": "!=",
+    "GREATERTHAN": ">",
+    "LESSTHAN": "<",
+    "GREATERTHANOREQUAL": ">=",
+    "LESSTHANOREQUAL": "<=",
+    "AND": "&&",
+    "OR": "||",
+    "NOT": "!",
+
+    // Control structures
+    "if": "if",
+    "else": "else",
+    "for": "for",
+    "while": "while",
+    "function": "void",
+
+    // Miscellaneous
+    "{comment}": "//",
+    "AddDependency": "#include",
+    "DisplayTextOnScreen": "std::cout <<",
+
+    // Special syntax handling
+    ";": ";"
+}
