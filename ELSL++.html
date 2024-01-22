@@ -6,6 +6,11 @@
         #output {
             border: 1px solid #ccc;
             padding: 10px;
+            white-space: pre-wrap; /* Keeps the formatting of the output */
+        }
+        #input {
+            width: 100%;
+            height: 150px;
         }
     </style>
 </head>
@@ -14,45 +19,123 @@
 <h1>ELSL to C++ Translator</h1>
 
 <!-- Input for custom ELSL code -->
-<textarea id="input" rows="10" cols="50"></textarea>
+<textarea id="input" placeholder="Enter your ELSL code here..."></textarea>
 
 <button id="translateButton">Translate</button>
+<button id="liveCodeButton">Live Code</button>
 
 <!-- Output translated C++ code -->
 <div id="output"></div>
 
 <script>
-    // Fetch the translation data from the JSON file in the 'data' folder
-    var translations = {};
+    var translations = {
+        // Variable types and data types
+        'var': 'int', // Default type, could vary
+        'let': 'int', // Default type, could vary
+        'const': 'const',
+        'string': 'std::string',
+        'number': 'int', // Adjust based on context
+        'branch': 'bool',
+        'matrix': 'std::vector',
+        'object': 'struct',
 
-    fetch('data/translated_with_ids.json')
-        .then(response => response.json())
-        .then(data => translations = data);
+        // Operators
+        'PLUS': '+',
+        'MINUS': '-',
+        'TIMES': '*',
+        'DIVIDE': '/',
+        'EQUAL': '==',
+        'NOTEQUAL': '!=',
+        'GREATERTHAN': '>',
+        'LESSTHAN': '<',
+        'GREATEROREQUAL': '>=',
+        'LESSOREQUAL': '<=',
+        'AND': '&&',
+        'OR': '||',
+        'NOT': '!',
 
-    document.getElementById("translateButton").addEventListener("click", function() {
+        // Control structures
+        'if': 'if',
+        'else': 'else',
+        'for': 'for',
+        'while': 'while',
+        'function': 'void', // Adjust based on context
+
+        // Miscellaneous
+        '{comment}': '//',
+        'AddDependency': '#include',
+        'DisplayTextOnScreen': 'std::cout <<',
+
+        // Special syntax handling
+        ';': ';' // Removed the newline after semicolon
+    };
+
+    var liveCodingEnabled = false;
+
+    document.getElementById("translateButton").addEventListener("click", translateELSL);
+    document.getElementById("liveCodeButton").addEventListener("click", toggleLiveCoding);
+    document.getElementById("input").addEventListener("input", handleInput);
+
+    function translateELSL() {
         var input = document.getElementById("input").value;
         var output = "";
-        
+
         // Split the input into lines for processing
-        var lines = input.split("\\n");
+        var lines = input.split("\n");
 
         for (var i = 0; i < lines.length; i++) {
             var line = lines[i].trim();
-            var translatedLine = translations.ELSL.find(item => item.content === line);
-            
-            if (translatedLine) {
-                var cppLine = translations["C++"].find(item => item.id === translatedLine.id);
-                output += cppLine ? cppLine.content : line;
-            } else {
-                output += line; // Keep the line as is if no translation is found
+            var words = line.split(/\s+/);
+
+            for (var j = 0; j < words.length; j++) {
+                var word = words[j];
+                var translatedWord = translations[word] || word;
+
+                // Append the translated word to the output
+                output += translatedWord;
+
+                // Add a space after each word
+                output += " ";
             }
 
-            output += "\\n";
+            // Add a newline after each line
+            output += "\n";
         }
 
         // Update the output div
         document.getElementById("output").innerText = output;
-    });
+    }
+
+    function toggleLiveCoding() {
+        liveCodingEnabled = !liveCodingEnabled;
+        this.innerText = liveCodingEnabled ? "Stop Live Code" : "Live Code";
+        if (liveCodingEnabled) {
+            translateELSL();
+        }
+    }
+
+    function handleInput(event) {
+        if (liveCodingEnabled) {
+            translateELSL();
+        }
+        autoCloseBrackets(event);
+    }
+
+    function autoCloseBrackets(event) {
+        var key = event.key;
+        var textarea = document.getElementById("input");
+        var start = textarea.selectionStart;
+        var end = textarea.selectionEnd;
+        var autoCloseMap = { '(': ')', '[': ']', '{': '}', '"': '"', "'": "'" };
+
+        if (autoCloseMap[key]) {
+            var value = textarea.value;
+            var toInsert = key + autoCloseMap[key];
+            textarea.value = value.slice(0, start) + toInsert + value.slice(end);
+            textarea.selectionStart = textarea.selectionEnd = start + 1;
+            event.preventDefault();
+        }
+    }
 </script>
 
 </body>
