@@ -1,0 +1,354 @@
+
+
+
+ _   _ _____      _____  _____  _____       _____                  _            _       _              ______ ___________ 
+| | | |  ___|    |  ___||____ |/ __  \     /  __ \ _     _        | |          ( )     | |             | ___ \  __ \  _  \
+| | | | |__ _____|___ \     / /`' / /'     | /  \/| |_ _| |_    __| | ___   ___|/ ___  | |__  _   _    | |_/ / |  \/ | | |
+| | | |  __|______|  \ \    \ \  / /       | |  |_   _|_   _|  / _` |/ _ \ / __| / __| | '_ \| | | |   |  __/| | __| | | |
+| |_| | |___     /\__/ /.___/ /./ /___     | \__/\|_|   |_|   | (_| | (_) | (__  \__ \ | |_) | |_| |   | |   | |_\ \ |/ / 
+ \___/\____/     \____(_)____(_)_____/      \____/             \__,_|\___/ \___| |___/ |_.__/ \__, | . \_|    \____/___/  
+                                        ______                                                 __/ |                    
+                                       |______|                                               |___/                     
+
+
+#include <iostream>
+#include <string>
+#include "CoreMinimal.h" // Essential Unreal Engine header
+using namespace std;
+
+// Unreal Engine Specific: FVector
+// FVector is a class for representing a vector in 3D space, commonly used in Unreal Engine for positions and directions.
+FVector MyVector = FVector(1.0f, 2.0f, 3.0f);
+
+// Unreal Engine Specific: Print to Screen
+// Using GEngine->AddOnScreenDebugMessage to display messages on the game screen for debugging.
+if (GEngine)
+{
+    GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Hello Unreal!"));
+}
+
+// Unreal Engine Specific: UPROPERTY
+// UPROPERTY macro exposes properties to the Unreal Editor and Blueprints, allowing for easy customization.
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Game")
+float MyUnrealFloat = 3.14f;
+
+//==============================================================================================
+
+// Data Types in Unreal Engine Context
+// Additional data types and structures used commonly in Unreal Engine.
+
+// 'FString' is Unreal's string type, used for text in Unreal Engine.
+FString MyUnrealString = TEXT("Hello Unreal World");
+
+// 'int32' is a 32-bit integer, commonly used in Unreal Engine for whole numbers.
+int32 MyUnrealInt = 42;
+
+// 'float' remains the same in Unreal, used for decimal numbers.
+float MyUnrealFloat2 = 3.14f;
+
+// 'bool' remains the same in Unreal, representing true or false.
+bool MyUnrealBool = true;
+
+// 'TArray<int32>' is Unreal's dynamic array, flexible in size.
+TArray<int32> MyUnrealArray = {1, 2, 3};
+
+// 'USTRUCT()' is a macro for defining structures in Unreal Engine, which can be used in Blueprints.
+USTRUCT(BlueprintType)
+struct FMyUnrealStruct {
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    FString Name; // A section for names (text).
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 Age;    // A section for age (number).
+} MyUnrealObject = {"John", 30};
+
+//==============================================================================================
+
+// Control Structures in Unreal Engine
+// The same control structures (if, if-else, etc.) apply in Unreal Engine as in standard C++, but you can interact with Unreal-specific elements within them.
+
+// Operators in Unreal Engine
+// The same operators (+, -, *, /, etc.) apply in Unreal Engine as in standard C++, but can be used with Unreal-specific types and classes.
+
+For instance, in the 'if' statement example, you can check an Unreal Engine specific condition and execute Unreal Engine related commands, like manipulating actors or triggering events in the game world.
+
+
+
+
+
+
+
+
+***********************
+USING THIS IN ACTION  *
+***********************
+
+
+TEST 1 : create simple age verification to allow users to join the specified level 
+
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+This is specifically for a Third-Person Template default by Unreal Engine 5 (UE5). 
+
+Below Ive added a simple to understand script example for a rudamentary age verification system that allows users to join a specific level, tailored for a UE5 Third-Person project based on there given age and logs name.
+
+
+
+### Expanded Script with Age Verification for Third-Person Template in UE5
+
+#### Script Overview
+- **Variables**: Define names and ages of players.
+- **Function**: Create a function to check ages and load levels.
+- **Integration**: Incorporate this into the Third-Person Template.
+
+#### Step 1: Define Variables
+We define variables for two players, including their names, ages, and a boolean to indicate if they are of legal age (18 or older).
+
+```cpp
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "MyAgeVerificationActor.generated.h"
+
+UCLASS()
+class MYGAME_API AMyAgeVerificationActor : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    // Variables for storing names and ages
+    FString Name1 = "John";
+    int32 Age1 = 16; // John is 16 years old
+    bool IsOfAge1 = Age1 >= 18;
+
+    FString Name2 = "Alice";
+    int32 Age2 = 20; // Alice is 20 years old
+    bool IsOfAge2 = Age2 >= 18;
+
+    // Function to check age and load level
+    void CheckAgeAndLoadLevel(const FString& Name, int32 Age, bool IsOfAge);
+};
+```
+
+#### Step 2: Define the Function
+This function checks the age and, based on the result, either loads a level or displays an appropriate message.
+
+```cpp
+void AMyAgeVerificationActor::CheckAgeAndLoadLevel(const FString& Name, int32 Age, bool IsOfAge)
+{
+    if (IsOfAge)
+    {
+        if (GEngine)
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Success: %s is of age."), *Name));
+            // Load a specified level if of age
+            UGameplayStatics::OpenLevel(this, FName("LevelNameForOfAge"), true);
+        }
+    }
+    else
+    {
+        if (GEngine)
+        {
+            GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("%s is less than 21 years old."), *Name));
+        }
+    }
+}
+```
+
+#### Step 3: Implement in Third-Person Template
+In the Third-Person Template, you would typically place this script on an actor that's part of your game's starting level. This actor would then execute the `CheckAgeAndLoadLevel` function during gameplay, such as in the `BeginPlay` function or in response to a specific event (e.g., a player pressing a button).
+
+```cpp
+void AMyAgeVerificationActor::BeginPlay()
+{
+    Super::BeginPlay();
+    
+    // Call the age check function for each player
+    CheckAgeAndLoadLevel(Name1, Age1, IsOfAge1);
+    CheckAgeAndLoadLevel(Name2, Age2, IsOfAge2);
+}
+```
+
+#### Important Notes
+- Replace `"LevelNameForOfAge"` with the actual name of the level you want to load for players of legal age.
+- This script assumes basic knowledge of setting up actors and functions in UE5. Adjustments may be needed based on your project's specific architecture and requirements.
+- Ensure that the game design respects user privacy and age-related legal considerations, especially when handling real user data.
+
+This script provides a foundational structure for an age verification system within the UE5 Third-Person Template, allowing for flexibility and customization based on your specific game mechanics and storylines.
+
+
+
+
+
+
+
+
+                                                 -------------------------------NEXT EXAMPLE BELOW--------------------------------
+
+
+
+
+
+
+-----------------------------------------
+
+TEST 2 : VERTICAL MOVING PLATFORM SCRIPT 
+
+------------------------------------------
+
+
+Creating a script for a vertically moving platform in Unreal Engine 5 (UE5) that moves upward upon collision with a trigger box is an excellent exercise for beginners. This example will help you understand key concepts like collision detection, manipulating actor positions, and using timelines in UE5. Let's break down the steps and the script for this task.
+
+### Script Overview
+- **Objective**: Move a platform vertically (along the Z-axis) when a player or object overlaps a collision box.
+- **Key Concepts**: Collision detection, Timelines, Actor movement.
+
+### Step 1: Set Up Your Actors
+1. **Platform Actor**: This is the platform that will move vertically. It can be a simple cube or any mesh.
+2. **Trigger Box**: This is an invisible box that will trigger the platform's movement when overlapped.
+
+### Step 2: Create a Platform Actor Class
+Create a new C++ class in UE5 that will represent your moving platform. Let's name it `UMovingPlatform`.
+
+```cpp
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "MovingPlatform.generated.h"
+
+UCLASS()
+class MYGAME_API AMovingPlatform : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    // Constructor
+    AMovingPlatform();
+
+    // Function to handle the start of overlap
+    UFUNCTION()
+    void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+    // Function to handle the end of overlap
+    UFUNCTION()
+    void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+protected:
+    // Called when the game starts or when spawned
+    virtual void BeginPlay() override;
+
+public:
+    // Called every frame
+    virtual void Tick(float DeltaTime) override;
+
+    // Trigger box for detecting overlaps
+    UPROPERTY(VisibleAnywhere, Category = "Trigger")
+    class UBoxComponent* TriggerBox;
+
+    // Timeline for smooth movement
+    FTimeline MyTimeline;
+
+    // Function to set the new Z location of the platform
+    void SetNewZLocation(float NewZ);
+
+    // Initial location of the platform
+    FVector StartLocation;
+
+    // Target location of the platform
+    FVector TargetLocation;
+};
+```
+
+### Step 3: Implement Platform Movement Logic
+In the `.cpp` file of your `AMovingPlatform` class, implement the logic for moving the platform.
+
+```cpp
+#include "MovingPlatform.h"
+#include "Components/BoxComponent.h"
+#include "Kismet/KismetMathLibrary.h"
+
+AMovingPlatform::AMovingPlatform()
+{
+    // Set this actor to call Tick() every frame
+    PrimaryActorTick.bCanEverTick = true;
+
+    // Create and attach a trigger box
+    TriggerBox = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerBox"));
+    RootComponent = TriggerBox;
+    TriggerBox->OnComponentBeginOverlap.AddDynamic(this, &AMovingPlatform::OnOverlapBegin);
+    TriggerBox->OnComponentEndOverlap.AddDynamic(this, &AMovingPlatform::OnOverlapEnd);
+
+    // Set initial and target locations
+    StartLocation = GetActorLocation();
+    TargetLocation = FVector(StartLocation.X, StartLocation.Y, StartLocation.Z + 100.0f); // Move 100 units upwards
+}
+
+void AMovingPlatform::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // Define the timeline's function and set up the curve
+    FOnTimelineFloat TimelineProgress;
+    TimelineProgress.BindUFunction(this, FName("SetNewZLocation"));
+    MyTimeline.AddInterpFloat(/* Your Curve Float Here */, TimelineProgress);
+
+    // Initialize locations
+    StartLocation = GetActorLocation();
+    TargetLocation = FVector(StartLocation.X, StartLocation.Y, StartLocation.Z + 100.0f); // Adjust Z value for the target height
+}
+
+void AMovingPlatform::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+
+    // Update the timeline
+    MyTimeline.TickTimeline(DeltaTime);
+}
+
+void AMovingPlatform::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+    MyTimeline.Play(); // Play the timeline to move the platform up
+}
+
+void AMovingPlatform::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+    MyTimeline.Reverse(); // Reverse the timeline to move the platform down
+}
+
+void AMovingPlatform::SetNewZLocation(float NewZ)
+{
+    FVector NewLocation = FMath::Lerp(StartLocation, TargetLocation, NewZ);
+    SetActorLocation(NewLocation);
+}
+```
+
+### Important Notes:
+- **Timeline Curve**: You need to create a float curve in the UE5 editor and assign it to `MyTimeline` in the `BeginPlay` function. This curve controls the movement speed and pattern.
+- **Overlap Events**: The `OnOverlapBegin` and `OnOverlapEnd` functions handle the start and end of an overlap event, respectively. They control the timeline's play and reverse actions.
+- **Lerping Location**: `SetNewZLocation` uses linear interpolation (`FMath::Lerp`) to smoothly transition the platform's location from the start to the target location.
+
+
+
+
+
+MORE TO COME SOON IN UE5 PART 2 DOC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
