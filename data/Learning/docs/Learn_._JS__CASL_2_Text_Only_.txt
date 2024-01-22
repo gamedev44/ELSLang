@@ -1,0 +1,745 @@
+
+__/\\\______________/\\\\\\\\\\\\\\\_____/\\\\\\\\\_______/\\\\\\\\\______/\\\\\_____/\\\_______        
+ _\/\\\_____________\/\\\///////////____/\\\\\\\\\\\\\___/\\\///////\\\___\/\\\\\\___\/\\\_______       
+  _\/\\\_____________\/\\\______________/\\\/////////\\\_\/\\\_____\/\\\___\/\\\/\\\__\/\\\_______      
+   _\/\\\_____________\/\\\\\\\\\\\_____\/\\\_______\/\\\_\/\\\\\\\\\\\/____\/\\\//\\\_\/\\\_______     
+    _\/\\\_____________\/\\\///////______\/\\\\\\\\\\\\\\\_\/\\\//////\\\____\/\\\\//\\\\/\\\_______    
+     _\/\\\_____________\/\\\_____________\/\\\/////////\\\_\/\\\____\//\\\___\/\\\_\//\\\/\\\_______   
+      _\/\\\_____________\/\\\_____________\/\\\_______\/\\\_\/\\\_____\//\\\__\/\\\__\//\\\\\\_______  
+       _\/\\\\\\\\\\\\\\\_\/\\\\\\\\\\\\\\\_\/\\\_______\/\\\_\/\\\______\//\\\_\/\\\___\//\\\\\__/\\\_ 
+        _\///////////////__\///////////////__\///________\///__\///________\///__\///_____\/////__\///__
+		                                                                            ====================
+                                                                                     =====    ===      ==
+                                                                                      ======  ===  ====  =             
+                                                                                       ======  ===  ====  =  
+                                                                                        ======  ====  ======
+                                                                                         ======  ======  ====
+                                                                                          ======  ========  ==        
+                                                                                           =  ===  ===  ====  =
+                                                                                            =  ===  ===  ====  =
+                                                                                             ==     =====      ==
+                                                                                              ====================
+
+
+
+****************************************************************************************************************************************
+
+
+
+
+
+
+_____________________________
+
+
+// Variables
+// Variables are used to store values that can be referenced and manipulated later.
+// They can be declared using the 'var', 'let', or 'const' keywords.
+var myVar = "Hello"; // Declaring a variable with the 'var' keyword
+let myLet = "World"; // Declaring a variable with the 'let' keyword = data (can be reassigned & updated) 
+const myConst = "Hello World"; // Declaring a variable with the 'const'= data (cannot be reassigned)
+
+_____________________________________________________________________________________________
+==============================================================================================
+_________________________________________________________________________________
+
+
+
+
+_________________________________________________________________________________
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+// Data Types
+// There are several different data types in JavaScript, including:
+// - Strings: a sequence of characters enclosed in quotes (single or double)
+// - Numbers: numeric values (integer or floating-point)
+// - Booleans: true or false values
+// - Arrays: an ordered list of values enclosed in square brackets
+// - Objects: a collection of key-value pairs enclosed in curly braces
+// - Null: a value that represents nothing or no value
+// - Undefined: a value that represents a variable that has not been assigned a value
+const myString = "Hello World"; // Declaring a string variable
+const myNumber = 42; // Declaring a number variable
+const myBoolean = true; // Declaring a boolean variable
+const myArray = [1, 2, 3]; // Declaring an array variable
+const myObject = {name: "John", age: 30}; // Declaring an object variable
+const myNull = null; // Declaring a null variable
+let myUndefined; // Declaring an undefined variable
+
+_______________________________________________________________________________________________
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+_____________________________________________________________________________
+
+// If Statement
+// The if statement is used to execute a block of code if a condition is true.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+}
+
+_______________________________________
+
+
+____________________________________________________________
+
+// If-Else Statement
+// The if-else statement is used to execute one block of code if a condition is true, and another block of code if the condition is false.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+} else {
+  console.log("The boolean is false.");
+}
+
+______________________________________________________
+
+
+
+
+
+_______________________________________________________________________________________________
+
+// Else Statement
+// The else statement is used to execute a block of code if the condition in the if statement is false.
+if (myBoolean === false) {
+  console.log("The boolean is false.");
+} else {
+  console.log("The boolean is not false.");
+}
+
+
+________________________________________________________________
+
+
+
+
+
+
+_______________________________________________________________________________
+
+// Nested If-Else Statement
+// You can also nest if-else statements to create more complex conditions.
+if (myBoolean === true) {
+  if (myNumber === 42) {
+    console.log("The boolean is true and the number is 42.");
+  } else {
+    console.log("The boolean is true but the number is not 42.");
+  }
+} else {
+  console.log("The boolean is false.");
+}
+
+
+_______________________________________________________________________________
+
++ is the addition operator. It is used to add two numbers together or concatenate two strings.
+
+- is the subtraction operator. It is used to subtract one number from another.
+
+* is the multiplication operator. It is used to multiply two numbers together.
+
+/ is the division operator. It is used to divide one number by another.
+
+% is the modulus operator. It is used to find the remainder of dividing one number by another.
+
+= is the assignment operator. It is used to assign a value to a variable.
+
+== is the equality operator. It is used to compare two values for equality, with type coercion.
+
+=== is the strict equality operator. It is used to compare two values for equality, without type coercion.
+
+!= is the inequality operator. It is used to compare two values for inequality, with type coercion.
+
+!== is the strict inequality operator. It is used to compare two values for inequality, without type coercion.
+
+> is the greater than operator. It is used to compare two values to see if the left operand is greater than the right operand.
+
+< is the less than operator. It is used to compare two values to see if the left operand is less than the right operand.
+
+>= is the greater than or equal to operator. It is used to compare two values to see if the left operand is greater than or equal to the right operand.
+
+<= is the less than or equal to operator. It is used to compare two values to see if the left operand is less than or equal to the right operand.
+
+&& is the logical AND operator. It is used to combine two or more conditions and returns true if both conditions are true.
+
+|| is the logical OR operator. It is used to combine two or more conditions and returns true if at least one of the conditions is true.
+
+! is the logical NOT operator. It is used to negate a condition and returns true if the condition is false.
+
+
+
+
+
+
+
+
+
+
+
+******************
+* M A T H        *
+* S E C T I O N  *
+******************
+
+
+
+
+
+
+project name Fizzbuzz
+
+
+
+
+
+
+
+reference code below
+
+
+___________________________________________________
+
+function fizzbuzz() {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+
+___________________________________________________
+
+--------------------------------------------------------------------------
+
+
+Project fizzBuzz is a programming challenge that makes you code a program
+
+this program should print the numbers from 1 to 100,
+
+ with the following modifications:
+
+If the number is divisible by 3, it prints "Fizz" instead of the number.
+If the number is divisible by 5, it prints "Buzz" instead of the number.
+If the number is divisible by both 3 and 5, it prints "FizzBuzz" instead of the number.
+
+
+Here's how the code should work:
+
+The for loop runs from 1 to 100 using a counter variable i.
+
+The first if statement checks whether the current value of i is divisible by both 3 and 5 using the modulo operator %. If it is, it prints "FizzBuzz" to the console.
+
+The second else if statement checks whether the current value of i is divisible by 3. If it is, it prints "Fizz" to the console.
+
+The third else if statement checks whether the current value of i is divisible by 5. If it is, it prints "Buzz" to the console.
+
+The final else statement handles the case where the current value of i is not divisible by either 3 or 5, and prints the value of i to the console.
+
+By the end of the loop, the function will have printed the numbers from 1 to 100, with the appropriate modifications based on divisibility by 3 and/or 5.
+
+
+
+
+Within the FizzBuzz program,
+
+ you can define a function called fizzBuzz()
+ this will encapsulate the logic of the program.
+ This function can take an optional parameter that specifies the maximum number to check
+ (defaulting to 100 if no argument is provided), and it can return an array of the FizzBuzz results.
+
+Here's an example implementation of the fizzBuzz() function:
+
+
+
+------------------------------------------------------------------------------------------------
+
+______________________________________
+
+
+function fizzBuzz(max = 100) {
+  const results = [];
+  for (let i = 1; i <= max; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      results.push("FizzBuzz");
+    } else if (i % 3 === 0) {
+      results.push("Fizz");
+    } else if (i % 5 === 0) {
+      results.push("Buzz");
+    } else {
+      results.push(i);
+    }
+  }
+  return results;
+}
+
+____________________________________________
+
+
+--------------------------------------------------------------------------------------------------
+
+
+You can then call this function and use its returned array to display the results on the screen,
+ as we discussed earlier.
+
+-----------------------------
+
+
+
+---------------------------------------------------------------------------------------------------
+
+An alternative approach to using functions is to encapsulate the FizzBuzz logic in an object or a class, if you want to take advantage of object-oriented programming concepts. Here's an example implementation using an object:
+---------------------------------------------------------------------------------------------------____________________________________________________
+
+
+const FizzBuzz = {
+  getMax: function() {
+    return this.max || 100;
+  },
+  setMax: function(max) {
+    this.max = max;
+  },
+  getResults: function() {
+    const results = [];
+    for (let i = 1; i <= this.getMax(); i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        results.push("FizzBuzz");
+      } else if (i % 3 === 0) {
+        results.push("Fizz");
+      } else if (i % 5 === 0) {
+        results.push("Buzz");
+      } else {
+        results.push(i);
+      }
+    }
+    return results;
+  }
+};
+
+_________________________________________________________
+
+
+-----------------------------------------------------------------------------------------
+You can then create an instance of the FizzBuzz object, set its maximum value (if desired), 
+and call its getResults() method to get the FizzBuzz results array. 
+
+       Example: below
+-----------------------------------------------------------------------------
+
+________________________________________________________________________________
+
+
+const fb = Object.create(FizzBuzz);
+fb.setMax(50);
+const results = fb.getResults();
+
+
+__________________________________________________________________________________
+
+------------------------------------------------------------------------------------
+
+This will return an array of the FizzBuzz results for the numbers 1 through 50. You can then use this array to display the results on the screen, as we discussed earlier.
+
+------------------------------------------------------------------------
+
+
+
+
+IF DONW CORRECTLY IT SHOULD LOOK LIKE THIS 
+code below
+
+
+___________________________________________________
+
+function fizzbuzz() {
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+
+___________________________________________________
+
+***************************
+* MENU'S & USER INTERFACE *
+***************************
+
+
+NOW THAT YOUR DONE WITH AND UNDERSTAND MATH WE WILL MAKE A SIMPLE MENU PROGRAM
+
+
+
+-----------------------------------------
+
+
+
+
+Data structures are used to organize and store data in a way that allows for efficient access and manipulation. Here are some examples of common data structures and their 2D wireframe representations:
+
+
+
+1 Arrays:
+_______________________
+
+
+
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+
+
+_______________________
+
+
+
+
+
+2.Linked Lists:
+_____________________________________
+
+
+
++---+    +---+    +---+    +---+
+|   | -> |   | -> |   | -> |   |
++---+    +---+    +---+    +---+
+| 0 |    | 1 |    | 2 |    | 3 |
++---+    +---+    +---+    +---+
+
+
+
+______________________________________
+
+
+
+3. Stacks:
+______________
+
++---+
+|   |
++---+
+|   |
++---+
+|   |
++---+
+|   |
++---+
+|   |
++---+
+
+______________
+
+
+
+4. Queues:
+_________________________________________________
+
+
++---+    +---+    +---+    +---+
+|   |    |   |    |   |    |   |
++---+ -> +---+ -> +---+ -> +---+
+| 0 |    | 1 |    | 2 |    | 3 |
++---+    +---+    +---+    +---+
+
+
+__________________________________________________
+
+
+
+
+5. Graphs:
+____________________________
+
+
++---+    +---+    +---+
+|   | -> |   | -> |   |
++---+    +---+    +---+
+  |        |
+  v        v
++---+    +---+
+|   | -> |   |
++---+    +---+
+
+
+_______________________
+
+
+
+
+
+6. Trees:
+____________________________
+
+
+       +---+
+       |   |
+       +---+
+        / \
++---+  /   \  +---+
+|   | /     \ |   |
++---+/       \+---+
+    /         \
+ +---+        +---+
+ |   |        |   |
+ +---+        +---+
+
+
+
+_____________________________
+
+
+-----------------------------------------------------------------
+
+These 2D wireframe representations above will hopefully provide
+
+ a more visual representation of the data structure
+
+ and how the elements are organized within it.
+
+-------------------------------------------------
+
+
+
+Regular Array:
+_____________________________________________
+
+let arr = [1, 2, 3, 4, 5];
+console.log(arr); // Output: [1, 2, 3, 4, 5]
+
+_____________________________________________
+
+
+
+Typed Array:
+_____________________________________________________
+
+let arr = new Int32Array([1, 2, 3, 4, 5]);
+console.log(arr); // Output: Int32Array [1, 2, 3, 4, 5]
+
+______________________________________________________
+
+
+
+Multidimensional Array:
+_____________________________________________
+
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+console.log(matrix[1][2]); // Output: 6
+
+_____________________________________________
+
+
+
+Array of Objects:
+_________________________________________
+
+let students = [
+  {name: "John", age: 20},
+  {name: "Jane", age: 22},
+  {name: "Bob", age: 19}
+];
+console.log(students[1].name); // Output: "Jane"
+
+_______________________________________________
+
+
+
+Array of Functions:
+______________________________________________
+
+let functions = [
+  function add(a, b) {
+    return a + b;
+  },
+  function multiply(a, b) {
+    return a * b;
+  }
+];
+console.log(functions[1](2, 3)); // Output: 6
+
+______________________________________________
+
+
+
+These are just some examples of how each type of array can be utilized in JavaScript. Depending on the requirements of the application, other types of arrays or combinations of arrays may be more suitable.
+
+
+
+
+// Data type conversion
+let numStr = "10"; //number data type
+let num = parseInt(numStr); // converts string to integer
+let floatNumStr = "10.5";
+let floatNum = parseFloat(floatNumStr); // converts string to float
+let strNum = num.toString(); // converts number to string
+
+______________________________________________________________________
+
+// String manipulation
+let str = "Hello World"; //string data type
+let length = str.length; // returns the length of the string
+let upperCase = str.toUpperCase(); // returns the string in upper case
+let lowerCase = str.toLowerCase(); // returns the string in lower case
+let index = str.indexOf("World"); // returns the index of the specified substring
+let substr = str.substring(6, 11); // returns a substring from the specified indexes
+
+________________________________________________________________________________________
+
+// Array manipulation
+let arr = [1, 2, 3, 4, 5];
+let length = arr.length; // returns the length of the array
+let lastIndex = arr.length - 1; // returns the index of the last element in the array
+let firstElement = arr[0]; // returns the first element in the array
+let lastElement = arr[lastIndex]; // returns the last element in the array
+let slicedArr = arr.slice(1, 4); // returns a new array with the elements from the specified indexes
+arr.push(6); // adds an element to the end of the array
+arr.pop(); // removes the last element from the array
+
+____________________________________________________________________________________________________
+
+// Math operations
+let num1 = 10;
+let num2 = 5;
+let sum = num1 + num2; // returns the sum of the two numbers
+let difference = num1 - num2; // returns the difference between the two numbers
+let product = num1 * num2; // returns the product of the two numbers
+let quotient = num1 / num2; // returns the quotient of the two numbers
+let remainder = num1 % num2; // returns the remainder of the two numbers
+
+_______________________________________________________________________________
+
+
+________________________________________________________________________________
+
+// Conditional statements
+let a = 10;
+let b = 5;
+if (a > b) {
+  console.log("a is greater than b");
+} else if (a < b) {
+  console.log("b is greater than a");
+} else {
+  console.log("a and b are equal");
+}
+
+___________________________________________________________________
+
+//Loops
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]); // iterates over the elements of the array
+}
+
+//while loops
+
+while (a < 20) {
+  console.log(a); // iterates as long as the condition is true
+  a++;
+}
+
+//for loops
+
+for (let a = 0; a < 20; a++) {
+  console.log(a); // iterates as long as the condition is true
+}
+
+
+
+
+// Functions
+
+function add(a, b) {
+  return a + b; // returns the sum of the two arguments
+}
+
+function subtract(a, b) {
+  return a - b; // returns the difference between the two arguments
+}
+
+
+// Object manipulation
+
+let obj = { name: "John", age: 30 };
+let keys = Object.keys(obj); // returns an array of the keys in the object
+let values = Object.values(obj); // returns an array of the values in the object
+let entries = Object.entries(obj); // returns an array of the key-value pairs in the object
+obj.name = "Jane"; // updates the value of the specified property in the object
+delete obj.age; // deletes the specified property from the object
+
+
+******************************************************************************************************
+You can Also use the JavaScript template literal syntax to embed other languages inside your JavaScript code.
+
+To do this,
+ you can use backticks ( ` ` ) to enclose the string containing your code
+                        and then embed the code of the other language using this  ${}.
+
+For example, let's say you want to embed HTML inside your JavaScript code. 
+     
+           You can do it like this:
+___________________________________________________
+
+
+const myHTML = `
+  <div class="my-div">
+    <h1>Hello World!</h1>
+    <p>This is some text.</p>
+  </div>
+`;
+
+document.querySelector('body').innerHTML = myHTML;
+
+
+____________________________________________________
+
+
+The example I provided above uses template literals or backticks like these ( ` ` )to embed HTML inside the JavaScript string,
+
+         but it does not use the ${} syntax.
+
+To clarify, the ${} syntax is used to interpolate variables or expressions inside a template literal.
+
+In the Example Below, we've used the backticks to define a string that contains HTML code.
+ We then embed the HTML code inside the string by including the use of this  ${}.
+ Finally, we use document.querySelector to select the body element of the HTML document and set its innerHTML to the value of the myHTML variable.
+ This will render the HTML code in the browser.
+
+
+_______________________________________________________________________
+const name = 'John';
+const age = 30;
+
+const message = `My name is ${name} and I am ${age} years old.`;
+
+console.log(message); // Output: My name is John and I am 30 years old.
+________________________________________________________________________
+
+
+
+--------------------------------------------------------------------------------------------------------
+You can use the same technique to embed code from other languages, such as CSS or SQL. 
+Just make sure to properly escape any special characters, such as backticks, inside the embedded code.
+--------------------------------------------------------------------------------------------------------
+
+
+FOR MORE VISIT INDIE_UNLIMITED OR Club1337x Server...
