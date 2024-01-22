@@ -1,8 +1,12 @@
-<!-- This tool was made by Mr. Asterisk to empower individuals to learn programming their way, using their own words, and at their own pace effortlessly. -->
-<!DOCTYPE html>
+<!--made by mr.asterisk-->>
 <html>
 <head>
-    <title>elsl++transterpreter</title>
+    <title>CodeConvert.com | I.S.E</title>
+    <meta property="og:title" content="ESLS++" />
+    <meta property="og:description" content="A tool created to make programming easier." />
+    <meta property="og:url" content="https://indieunlimited.com/PGD" />
+    <meta property="og:image" content="https://camo.githubusercontent.com/843d03d6e4145ba7b01802349a5f1bd266da851fcd6c0d384749b2240411c96f/68747470733a2f2f6763646e622e706272642e636f2f696d616765732f6234417866556b72786c74492e706e673f6f3d31" />
+    <meta property="og:type" content="tool" />
     <style>
         body {
             zoom: 200%;
@@ -10,13 +14,13 @@
         #output {
             border: 1px solid #ccc;
             padding: 10px;
-            white-space: pre-wrap; /* Keeps the formatting of the output */
+            white-space: pre-wrap;
         }
         #input {
             width: 100%;
             height: 150px;
         }
-        body.dark-mode {
+        .dark-mode {
             background-color: #333;
             color: #fff;
         }
@@ -30,7 +34,7 @@
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
         }
         .dropdown:hover .dropdown-content {
@@ -49,20 +53,24 @@
             bottom: 10px;
             right: 10px;
         }
-        #exportToFileButton {
-            right: 10%;
-        }
     </style>
 </head>
 <body>
 
-<h1> Elsl++ </h1>
-<h3>Customizable Scripting Translator By: Mr.Asterisk</h3>
-<!--Made as originally just ELSL to C++ Translator via interpretation based on webscript bat2html converter by:PGD-->
-<!-- Input for custom ELSL code -->
-<textarea id="input" placeholder="Enter your ELSL code here..."></textarea>
+<h1>CodeConvert | ISE</h1>
+<h3>Web-Based | Code Converter by: Mr.AsteRisk</h3>
 
-<button id="translateButton">Compile/Re-Compile</button>
+<!-- Input for code -->
+<textarea id="input" placeholder="Enter your code here..."></textarea>
+
+<!-- Dropdown menu for selecting the translation dictionary -->
+<select id="dictionarySelector">
+    <option value="elslToCpp">ELSL to C++</option>
+    <option value="batToHtmlCssJs">BAT to HTML/CSS/JS</option>
+    <option value="pythonToCpp">Python to C++</option>
+</select>
+
+<button id="translateButton">Translate</button>
 <button id="typeCycleButton">Type Cycle</button>
 
 <!-- Dropdown menu for Editing actions -->
@@ -85,7 +93,7 @@
     </div>
 </div>
 
-<!-- Output translated C++ code -->
+<!-- Output translated code -->
 <div id="output"></div>
 
 <!-- File input for custom syntax JSON -->
@@ -100,19 +108,19 @@
     </div>
 </div>
 
-
 <script>
-    // Default translations
-    var defaultTranslations = {
+    // Dictionary definitions for ELSL to C++, BAT to HTML/CSS/JS, and Python to C++
+    // Define your dictionaries here
+    var elslToCppTranslations = { 
         // Variable types and data types
-        'var': 'int', // Default type, could vary
-        'let': 'int', // Default type, could vary
-        'const': 'const',
-        'string': 'std::string',
-        'number': 'int', // Adjust based on context
-        'branch': 'bool',
-        'matrix': 'std::vector',
-        'object': 'struct',
+        'var': 'int', // Default type, auto for automatic type deduction
+        'let': 'int', // Default integer type
+        'const': 'const', // Constant qualifier
+        'string': 'std::string', // String type
+        'number': 'double', // Number type, using double for floating-point numbers
+        'branch': 'bool', // Boolean type
+        'matrix': 'std::vector', // Vector for matrix-like structures
+        'object': 'struct', // Structure for object-like constructs
 
         // Operators
         'PLUS': '+',
@@ -134,179 +142,197 @@
         'else': 'else',
         'for': 'for',
         'while': 'while',
-        'function': 'void', // Adjust based on context
+        'do': 'do', // Do-while loop
+        'switch': 'switch', // Switch statement
+        'case': 'case', // Case in switch statement
+        'default': 'default', // Default case in switch statement
+        'function': 'void', // Function keyword, defaulting to void
 
         // Miscellaneous
-        '{comment}': '//',
-        'AddDependency': '#include',
-        'DisplayTextOnScreen': 'std::cout <<',
+        '{comment}': '//', // Single line comment
+        '/*': '/*', // Start of multi-line comment
+        '*/': '*/', // End of multi-line comment
+        'AddDependency': '#include', // Include directive
+        'DisplayTextOnScreen': 'std::cout <<', // Output to console
 
         // Special syntax handling
-        ';': ';' // Removed the newline after semicolon
+        ';': ';', // Semicolon for end of statement
+
+        // Additional translations as needed
+        // ... (You can add more translations specific to ELSL here)
     };
 
-    var translations = Object.assign({}, defaultTranslations); // Copy default translations
+    var translations = Object.assign({}, elslToCppTranslations); // Copy ELSL to C++ translations
 
-    // List of available types to cycle through
-    var availableTypes = ['int', 'bool', 'std::string', 'std::vector', 'struct', 'const'];
+    var batToHtmlCssJsTranslations = { 
+        // Output and Comments
+        'echo': '<p>', // Output text as a paragraph in HTML
+        'REM': '<!--', // Start of an HTML comment
+        'REM_END': '-->', // End of an HTML comment
+
+        // Headers and Text Elements
+        'h1': '<h1>', // Header 1
+        'h2': '<h2>', // Header 2
+        'P': '<p>', // Paragraph
+        'span': '<span>', // Span for inline text
+
+        // Hyperlinks and Images
+        'url': '<a href="', // Hyperlinks
+        'Img': '<img src="', // Images
+
+        // HTML Attributes
+        '#': 'id="', // ID attribute
+        '.': 'class="', // Class attribute
+
+        // Mathematical Operators (can be used both ways)
+        'PLUS': '+', '+': '+', // Addition
+        'MINUS': '-', '-': '-', // Subtraction
+        'TIMES': '*', '*': '*', // Multiplication
+        'DIVIDE': '/', '/': '/', // Division
+        'EQUAL': '=', '=': '=', // Equality
+
+        // Variables and Data Types
+        'set': 'var', // Variable declaration in JavaScript
+        'int': 'Number', // Integer data type
+        'string': 'String', // String data type
+
+        // Control Structures
+        'if': 'if', // If statement
+        'else': 'else', // Else statement
+        'goto': 'window.location.href =', // Goto used for URL redirection
+
+        // Additional Control Structures and Statements
+        'for': 'for', // For loop
+        'echo off': '<!--', // Treat 'echo off' as starting a comment
+        'echo on': '-->', // Treat 'echo on' as ending a comment
+
+        // Closing Tags for HTML Elements (to be used as needed)
+        '/h1': '</h1>',
+        '/h2': '</h2>',
+        '/P': '</p>',
+        '/span': '</span>',
+        '/url': '</a>',
+        '/Img': '">', // Closing tag for <img> is a special case
+
+        // Add more based on BAT file syntax and HTML/CSS/JS equivalents
+    };
+
+    var pythonToCppTranslations = { 
+        // Data Types
+        'int': 'int', // Integer type
+        'float': 'float', // Floating-point type
+        'str': 'std::string', // String type
+        'bool': 'bool', // Boolean type
+        'list': 'std::vector', // List type
+        'dict': 'std::map', // Dictionary type
+
+        // Boolean Values
+        'True': 'true', 
+        'False': 'false',
+        'None': 'nullptr', // Null value
+
+        // Control Structures
+        'if': 'if', // If statement
+        'elif': 'else if', // Else if statement
+        'else': 'else', // Else statement
+        'for': 'for', // For loop
+        'while': 'while', // While loop
+        'break': 'break', // Break statement
+        'continue': 'continue', // Continue statement
+
+        // Functions
+        'def': 'void', // Function definition (simplified)
+        'return': 'return', // Return statement
+
+        // Operators
+        'and': '&&', // Logical AND
+        'or': '||', // Logical OR
+        'not': '!', // Logical NOT
+        'in': '// no direct equivalent in C++', // Membership
+
+        // Input/Output
+        'print': 'std::cout <<', // Print statement
+        'input': 'std::cin >>', // Input statement
+
+        // Exceptions
+        'try': 'try', // Try block
+        'except': 'catch', // Catch block
+        'raise': 'throw', // Throw exception
+
+        // Classes and Objects
+        'class': 'class', // Class definition
+        'self': 'this', // Self reference
+
+        // Miscellaneous
+        'import': '#include', // Import statement
+        'lambda': '[&]', // Lambda expression (simplified)
+
+        // Add more based on Python syntax and C++ equivalents
+    };
+
+    var currentTranslations = elslToCppTranslations; // Default to ELSL to C++
+    var availableTypes = ['int', 'bool', 'std::string', 'std::vector', 'struct', 'const', 'double', 'float'];
     var currentTypeIndex = 0; // Initialize to the first type
 
-    var liveCodingEnabled = false;
+    // Event listeners and translation function
+    document.getElementById("translateButton").addEventListener("click", function() {
+        var input = document.getElementById("input").value;
+        var output = translate(input, currentTranslations);
+        document.getElementById("output").innerText = output;
+    });
 
-    // Add event listener for key press (backslash key for type cycling)
-    document.getElementById("input").addEventListener("keydown", function(event) {
-        if (event.key === "\\") { // Check if the backslash key is pressed
-            // Cycle to the next type
-            currentTypeIndex = (currentTypeIndex + 1) % availableTypes.length;
-            // Update the translation for 'var' and 'let' to the current type
-            translations['var'] = translations['let'] = availableTypes[currentTypeIndex];
-            // Update the translated output
-            translateELSL();
-            // Prevent the backslash key from entering into the textarea
-            event.preventDefault();
+    document.getElementById("dictionarySelector").addEventListener("change", function(event) {
+        switch(event.target.value) {
+            case "elslToCpp":
+                currentTranslations = elslToCppTranslations;
+                break;
+            case "batToHtmlCssJs":
+                currentTranslations = batToHtmlCssJsTranslations;
+                break;
+            case "pythonToCpp":
+                currentTranslations = pythonToCppTranslations;
+                break;
         }
     });
 
-    document.getElementById("translateButton").addEventListener("click", translateELSL);
+    document.getElementById("typeCycleButton").addEventListener("click", function() {
+        currentTypeIndex = (currentTypeIndex + 1) % availableTypes.length;
+        console.log("Cycling type to: " + availableTypes[currentTypeIndex]);
+    });
 
-    // Dropdown menu actions
-    document.getElementById("loadCustomSyntaxButton").addEventListener("click", loadCustomSyntax);
-    document.getElementById("refreshBindingsButton").addEventListener("click", refreshBindings);
-    document.getElementById("saveBindingsButton").addEventListener("click", saveBindings);
+    document.getElementById("darkModeButton").addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+    });
 
-    // Dropdown menu options
-    document.getElementById("changeThemeButton").addEventListener("click", changeTheme);
-    document.getElementById("darkModeButton").addEventListener("click", toggleDarkMode);
-    document.getElementById("liveCodeButton").addEventListener("click", toggleLiveCoding);
-    document.getElementById("typeCycleButton").addEventListener("click", cycleType);
+    // Additional functionalities like Load Custom Syntax, Refresh Bindings, Save Bindings, etc.
+    // Implement these functionalities as per your requirements
+    document.getElementById("loadCustomSyntaxButton").addEventListener("click", function() {
+        // Implement logic for loading custom syntax here
+    });
 
-    // Export options
-    document.getElementById("copyToClipboardButton").addEventListener("click", copyToClipboard);
-    document.getElementById("exportToFileButton").addEventListener("click", exportToFile);
+    document.getElementById("refreshBindingsButton").addEventListener("click", function() {
+        // Implement logic for refreshing bindings here
+    });
 
-    function translateELSL() {
-        var input = document.getElementById("input").value;
+    document.getElementById("saveBindingsButton").addEventListener("click", function() {
+        // Implement logic for saving bindings here
+    });
+
+    function translate(input, dictionary) {
+        // Translation logic goes here
+        var words = input.split(" ");
         var output = "";
 
-        // Split the input into lines for processing
-        var lines = input.split("\n");
-
-        for (var i = 0; i < lines.length; i++) {
-            var line = lines[i].trim();
-            var words = line.split(/\s+/);
-
-            for (var j = 0; j < words.length; j++) {
-                var word = words[j];
-                var translatedWord = translations[word] || word;
-
-                // Append the translated word to the output
-                output += translatedWord;
-
-                // Add a space after each word
-                output += " ";
+        for (var i = 0; i < words.length; i++) {
+            var word = words[i];
+            if (dictionary.hasOwnProperty(word)) {
+                output += dictionary[word] + " ";
+            } else {
+                output += word + " ";
             }
-
-            // Add a newline after each line
-            output += "\n";
         }
 
-        // Update the output div
-        document.getElementById("output").innerText = output;
-    }
-
-    function loadCustomSyntax() {
-        var fileInput = document.getElementById("customSyntaxInput");
-        fileInput.addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            var reader = new FileReader();
-            reader.onload = function() {
-                try {
-                    var loadedTranslations = JSON.parse(reader.result);
-                    if (JSON.stringify(loadedTranslations) !== JSON.stringify(defaultTranslations)) {
-                        // Use the loaded custom syntax
-                        translations = loadedTranslations;
-                        alert("Custom syntax loaded successfully.");
-                    } else {
-                        alert("Custom syntax is the same as default. Choose a different file.");
-                    }
-                } catch (error) {
-                    alert("Invalid JSON syntax in the selected file.");
-                }
-            };
-            if (file) {
-                reader.readAsText(file);
-            }
-        });
-        // Trigger the file input dialog
-        fileInput.click();
-    }
-
-    function refreshBindings() {
-        // You can implement the logic for refreshing bindings here
-        // This could involve resetting custom translations to default or other actions
-        alert("Bindings refreshed.");
-    }
-
-    function saveBindings() {
-        // You can implement the logic for saving bindings here
-        // This could involve saving the current translations to a file or other actions
-        alert("Bindings saved.");
-    }
-
-    function changeTheme() {
-        var imageUrl = prompt("Enter the URL of the background image to change the theme:");
-        if (imageUrl) {
-            document.body.style.backgroundImage = 'url(' + imageUrl + ')';
-        }
-    }
-
-    function cycleType() {
-        // Cycle to the next type
-        currentTypeIndex = (currentTypeIndex + 1) % availableTypes.length;
-        // Update the translation for 'var' and 'let' to the current type
-        translations['var'] = translations['let'] = availableTypes[currentTypeIndex];
-        // Update the translated output
-        translateELSL();
-    }
-
-    function toggleLiveCoding() {
-        liveCodingEnabled = !liveCodingEnabled;
-        document.getElementById("liveCodeButton").innerText = liveCodingEnabled ? "Stop Live Code" : "Live Code";
-        if (liveCodingEnabled) {
-            // Run translateELSL every 100 milliseconds while live coding is enabled
-            setInterval(translateELSL, 100);
-        }
-    }
-
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
-
-    function copyToClipboard() {
-        var output = document.getElementById("output");
-        var textArea = document.createElement("textarea");
-        textArea.value = output.innerText;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert("Output copied to clipboard!");
-    }
-
-    function exportToFile() {
-        var output = document.getElementById("output").innerText;
-        var fileName = prompt("Enter a file name (e.g., output.cpp):");
-        if (fileName) {
-            var blob = new Blob([output], { type: 'text/plain' });
-            var url = URL.createObjectURL(blob);
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = fileName;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-        }
+        return output.trim(); // Remove trailing space
     }
 </script>
 

@@ -1,0 +1,189 @@
+
+__________          __  .__                   
+\______   \___.__._/  |_|  |__   ____   ____  
+ |     ___<   |  |\   __\  |  \ /  _ \ /    \ 
+ |    |    \___  | |  | |   Y  (  <_> )   |  \
+ |____|    / ____| |__| |___|  /\____/|___|  /
+           \/                \/            \/ 
+Certainly! Here's a single comprehensive learning page for Python in TypeScript format:
+
+```typescript
+___________.__         .__                           
+\_   _____/|  |   _____|  |      .__         .__     
+ |    __)_ |  |  /  ___/  |    __|  |___   __|  |___ 
+ |        \|  |__\___ \|  |__ /__    __/  /__    __/ 
+/_______  /|____/____  >____/    |__|        |__|    
+        \/           \/                              
+
+## Python Programming
+
+Python is a versatile and easy-to-learn programming language. Let's explore some fundamental concepts.
+
+### Variables and Data Types
+
+In Python, you can create variables to store different types of data. Here are some common data types:
+
+```python
+my_str = "Hello World"    // String
+my_int = 42             // Integer
+my_float = 3.14            // Floating-point number
+my_bool = true             // Boolean (true/false)
+my_list = [1, 2, 3]        // List
+my_dict = {"name": "John", "age": 30}  // Dictionary
+```
+
+### Control Structures
+
+Python offers various control structures to manage the flow of your program. Let's explore some common ones.
+
+#### Conditional Statements
+
+##### If Statement
+
+```python
+age = 18
+if age >= 18:
+    console.log("You are an adult.");
+else {
+    console.log("You are not an adult yet.");
+}
+```
+
+##### If-Else Statement
+
+```python
+if (my_condition) {
+    // Code to execute if the condition is true
+} else {
+    // Code to execute if the condition is false
+}
+```
+
+#### Loops
+
+##### For Loop
+
+```python
+fruits = ["apple", "banana", "cherry"];
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+```
+
+##### While Loop
+
+```python
+let count = 0;
+while (count < 5) {
+    console.log(count);
+    count++;
+}
+```
+
+### Functions
+
+Functions allow you to organize your code into reusable blocks. Here's how you define and use functions in Python.
+
+#### Defining a Function
+
+```python
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+```
+
+#### Calling a Function
+
+```python
+const message = greet("Alice");
+console.log(message);
+```
+
+### Lists
+
+Lists are versatile data structures in Python. They can store multiple items and are mutable.
+
+#### Creating Lists
+
+```python
+const myList = [1, 2, 3, 4, 5];
+```
+
+#### Accessing List Elements
+
+```python
+const firstElement = myList[0];
+console.log(firstElement);
+```
+
+#### Modifying Lists
+
+```python
+myList[2] = 10;
+console.log(myList);
+```
+
+#### Adding and Removing Elements
+
+```python
+myList.push(6);
+myList.pop();
+console.log(myList);
+```
+
+### Dictionaries
+
+Dictionaries store data in key-value pairs. They are useful for mapping and organizing information.
+
+#### Creating Dictionaries
+
+```python
+const person = {"name": "John", "age": 30, "city": "New York"};
+```
+
+#### Accessing Dictionary Values
+
+```python
+console.log(person["name"]);
+```
+
+#### Modifying Dictionary Values
+
+```python
+person["age"] = 31;
+console.log(person);
+```
+
+### Operators
+
+Python supports various operators for arithmetic and comparisons.
+
+```python
++   // Addition
+-   // Subtraction
+*   // Multiplication
+/   // Division
+%   // Modulus
+==  // Equality
+!=  // Inequality
+<   // Less Than
+>   // Greater Than
+<=  // Less Than or Equal To
+>=  // Greater Than or Equal To
+&&  // Logical AND
+||  // Logical OR
+!   // Logical NOT
+```
+
+### Common Syntax and Built-in Commands
+
+Here are some common syntax and built-in commands:
+
+- Get, Set, Combine
+- Character, Player
+- Controller, Keyboard, Button, DirectInput, Key
+- OnPressed, OnReleased, OnCollide, OnHit, OnEvent, WhileHeld, OnClicked, OnDown, OnUp
+- BeginPlay, UponStartup, AfterFunction, Before, While, OnlyIf, Then
+```
+
+This comprehensive learning page covers Python programming, including variables, data types, control structures, functions, lists, dictionaries, operators, and common syntax.

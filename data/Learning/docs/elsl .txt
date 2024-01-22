@@ -1,0 +1,89 @@
+___________.__         .__                           
+\_   _____/|  |   _____|  |      .__         .__     
+ |    __)_ |  |  /  ___/  |    __|  |___   __|  |___ 
+ |        \|  |__\___ \|  |__ /__    __/  /__    __/ 
+/_______  /|____/____  >____/    |__|        |__|    
+        \/           \/                              
+
+ELSL (English-Like Scripting Language) to C++ Translator
+Designed for Easy Conversion to C++ with a Simple Translator Program
+
+// Container (Variables)
+
+// Containers are like storage bins that hold data, values, or information.
+// They can be declared using the 'var', 'let', or 'const' keywords.
+
+var myVar = "Hello";   // Declaring a variable with 'var'
+let myLet = "World";  // Declaring a variable with 'let' (can be reassigned)
+const myConst = "Hello World";  // Declaring a variable with 'const' (unchangeable)
+
+// (Data Types)
+
+// ELSL supports various data types:
+// - Texts: Enclosed in quotes (single or double)
+// - Numbers: Integer or floating-point
+// - Branch: True or false values
+// - Matrix: An ordered list in square brackets
+// - Objects: Collection of key-value pairs in curly braces
+// - EmptyValue: Represents nothing or no value
+// - Undefined: Represents an unassigned variable
+// - Structures: Composite data type
+
+const myText = "Hello World";    // String
+const myNumber = 42;             // Number
+const myBranch = true;           // Boolean
+const myArray = [1, 2, 3];       // Array
+const myObject = {name: "John", age: 30}; // Object
+const myNull = null;             // Null
+let myUndefined;                 // Undefined
+
+// Structures can be defined like this:
+struct MyStruct {
+  string name; // Section for names (text).
+  int age;     // Section for age (number).
+} myObject = {"John", 30};
+
+// Statements
+
+// If Statement
+// Execute a block of code if a condition is true.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+}
+
+// If-Else Statement
+// Execute one block of code if a condition is true, and another if it's false.
+if (myBoolean === true) {
+  console.log("The boolean is true.");
+} else {
+  console.log("The boolean is false.");
+}
+
+// Else Statement
+// Execute a block of code if the condition in the if statement is false.
+if (myBoolean === false) {
+  console.log("The boolean is false.");
+} else {
+  console.log("The boolean is not false.");
+}
+
+// Nested If-Else Statement
+// Nest if-else statements to create more complex conditions.
+if (myCondition === true ++ myNumber === 42) then {
+  DisplayText("The condition is met as true and the number is 42.");
+} otherwise if myCondition === false {
+  console.log("Conditions Not Met Yet, the number is 42 though the condition is False.");
+} orelse {
+  console.log("The Condition is false, and the number isn't equal to 42.");
+}
+
+// Operators
+
+// Examples of common operators:
+// +, -, *, /, %, =, ==, ===, !=, !==, >, <, >=, <=, &&, ||, |IsFalse|
+
+// Additional Information
+
+ELSL provides basic common syntax and statements for actions like Get, Set, Combine, Character, Player, Controller, Keyboard, Button, DirectInput, Key, OnPressed, OnReleased, OnCollide, OnHit, OnEvent, WhileHeld, OnClicked, OnDown, OnUp, BeginPlay, UponStartup, AfterFunction, Before, While, OnlyIf, and more.
+
+Feel free to explore and use these commands in your ELSL code, and the translator will convert them to equivalent C++ code.

@@ -1,0 +1,121 @@
+
+__________         __         .__                                    .__   
+\______   \_____ _/  |_  ____ |  |__              ____   ______ _____|  |  
+ |    |  _/\__  \\   __\/ ___\|  |  \    ______ _/ ___\ /  ___//  ___/  |  
+ |    |   \ / __ \|  | \  \___|   Y  \  /_____/ \  \___ \___ \ \___ \|  |__
+ |______  /(____  /__|  \___  >___|  /           \___  >____  >____  >____/
+        \/      \/          \/     \/                \/     \/     \/      
+
+
+Windows Batch Scripting Learning Page
+Master the Basics of Batch Scripting in Windows
+
+// Introduction
+
+Batch scripting is a powerful way to automate tasks and perform repetitive actions in Windows. In this learning page, you'll discover the fundamentals of Batch scripting and how to create your own batch scripts.
+
+// Basics of Batch
+
+// Batch scripts are text files with a .bat or .cmd extension. They contain a series of commands that are executed one after another.
+
+// Printing Text
+@echo off
+echo Hello, World!
+
+// Variables
+set myVar=Hello
+echo %myVar%
+
+// Comments
+:: This is a comment
+
+// Input and Output
+set /p userInput=Enter your name: 
+echo Hello, %userInput%!
+
+// Conditional Statements
+
+// If Statement
+if "%myVar%"=="Hello" (
+  echo The variable is set to Hello.
+)
+
+// If-Else Statement
+if "%myVar%"=="Hello" (
+  echo The variable is set to Hello.
+) else (
+  echo The variable is not set to Hello.
+)
+
+// Loops
+
+// For Loop
+for /l %%x in (1, 1, 5) do (
+  echo %%x
+)
+
+// While Loop
+set count=1
+:loop
+if %count% LEQ 5 (
+  echo %count%
+  set /a count+=1
+  goto loop
+)
+
+// Functions
+
+// Creating a Function
+:myFunction
+echo This is my function.
+exit /b
+
+// Calling a Function
+call :myFunction
+
+// File Operations
+
+// Creating a File
+echo Hello, File! > myFile.txt
+
+// Reading a File
+for /f %%a in (myFile.txt) do (
+  echo %%a
+)
+
+// Deleting a File
+del myFile.txt
+
+// Environment Variables
+
+// Accessing Environment Variables
+echo The current user is %USERNAME%
+echo The computer name is %COMPUTERNAME%
+
+// Advanced Techniques
+
+// Error Handling
+@echo off
+if exist myfile.txt (
+  echo The file exists.
+) else (
+  echo The file does not exist.
+)
+
+// Labels and Goto
+:myLabel
+echo This is my label.
+goto end
+
+:end
+echo End of the script.
+
+// Best Practices
+
+- Use meaningful variable names.
+- Add comments for clarity.
+- Test your scripts in a safe environment.
+
+// Conclusion
+
+With these basics of Batch scripting, you can start automating tasks and making your Windows experience more efficient. Explore advanced topics and practice to become a Batch scripting pro!
