@@ -57,5 +57,9 @@ Contributions are semi open source but still fully welcome! Feel free to fork th
 
 ## Security Seal
 @PGD original code By: mr.asterisk
+
+
+## Contribute to my projects future and past.
 ```
+https://www.patreon.com/sanon/membership
 ```
