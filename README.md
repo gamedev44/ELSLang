@@ -1,6 +1,6 @@
 # ELSL++ 
 
-![ELSL++ Transterpreter](https://gcdnb.pbrd.co/images/b4AxfUkrxltI.png?o=1)
+![ELSL++ Transterpreter](https://gcdnb.pbrd.co/images/B6w5JQkpm0Ot.png?o=1)
 
 ## Overview
 
