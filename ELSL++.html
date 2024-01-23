@@ -1,4 +1,4 @@
-<!--made by mr.asterisk-->>
+<!--made by mr.asterisk-->
 <html>
 <head>
     <title>CodeConvert.com | I.S.E</title>
@@ -68,20 +68,11 @@
     <option value="elslToCpp">ELSL to C++</option>
     <option value="batToHtmlCssJs">BAT to HTML/CSS/JS</option>
     <option value="pythonToCpp">Python to C++</option>
+    <option value="customToCpp">CustomToCpp</option> <!-- Added CustomToCpp dictionary -->
 </select>
 
 <button id="translateButton">Translate</button>
 <button id="typeCycleButton">Type Cycle</button>
-
-<!-- Dropdown menu for Editing actions -->
-<div class="dropdown" style="right: 30%;">
-    <button class="dropdown-button">Syntax Editing</button>
-    <div class="dropdown-content">
-        <button id="loadCustomSyntaxButton">Load Custom Syntax</button>
-        <button id="refreshBindingsButton">Refresh Bindings</button>
-        <button id="saveBindingsButton">Save Bindings</button>
-    </div>
-</div>
 
 <!-- Dropdown menu for Options -->
 <div class="dropdown" style="right: 7%;">
@@ -109,7 +100,7 @@
 </div>
 
 <script>
-    // Dictionary definitions for ELSL to C++, BAT to HTML/CSS/JS, and Python to C++
+    // Dictionary definitions for ELSL to C++, BAT to HTML/CSS/JS, Python to C++, and CustomToCpp
     // Define your dictionaries here
     var elslToCppTranslations = { 
         // Variable types and data types
@@ -161,8 +152,6 @@
         // Additional translations as needed
         // ... (You can add more translations specific to ELSL here)
     };
-
-    var translations = Object.assign({}, elslToCppTranslations); // Copy ELSL to C++ translations
 
     var batToHtmlCssJsTranslations = { 
         // Output and Comments
@@ -270,70 +259,177 @@
         // Add more based on Python syntax and C++ equivalents
     };
 
-    var currentTranslations = elslToCppTranslations; // Default to ELSL to C++
-    var availableTypes = ['int', 'bool', 'std::string', 'std::vector', 'struct', 'const', 'double', 'float'];
-    var currentTypeIndex = 0; // Initialize to the first type
+    // Your custom CustomToCpp translations
+    var customToCppTranslations = {
+        // Add your custom translations here
+        'CUSTOM_COMMAND': 'custom_translation',
+        // ...
+    };
 
-    // Event listeners and translation function
-    document.getElementById("translateButton").addEventListener("click", function() {
-        var input = document.getElementById("input").value;
-        var output = translate(input, currentTranslations);
-        document.getElementById("output").innerText = output;
-    });
+    // Merge the custom translations with the default CustomToCpp translations
+    var customToCppTranslationsWithCustom = Object.assign({}, customToCppTranslations);
 
-    document.getElementById("dictionarySelector").addEventListener("change", function(event) {
-        switch(event.target.value) {
-            case "elslToCpp":
-                currentTranslations = elslToCppTranslations;
-                break;
-            case "batToHtmlCssJs":
-                currentTranslations = batToHtmlCssJsTranslations;
-                break;
-            case "pythonToCpp":
-                currentTranslations = pythonToCppTranslations;
-                break;
-        }
-    });
+    // Define type cycles for each variable type in all four languages
+    var typeCycles = {
+        'elslToCpp': ['int', 'bool', 'std::string', 'std::vector', 'struct', 'const', 'double', 'float'],
+        'batToHtmlCssJs': ['Number', 'String'],
+        'pythonToCpp': ['int', 'float', 'std::string', 'bool', 'std::vector', 'std::map'],
+        'customToCpp': [] // Add your custom variable types here
+    };
 
-    document.getElementById("typeCycleButton").addEventListener("click", function() {
-        currentTypeIndex = (currentTypeIndex + 1) % availableTypes.length;
-        console.log("Cycling type to: " + availableTypes[currentTypeIndex]);
-    });
+    // JavaScript code for translation and type cycles
+    // ...
+    // JavaScript code for translation and type cycles
+document.addEventListener('DOMContentLoaded', function () {
+    const inputElement = document.getElementById('input');
+    const outputElement = document.getElementById('output');
+    const dictionarySelector = document.getElementById('dictionarySelector');
+    const translateButton = document.getElementById('translateButton');
+    const typeCycleButton = document.getElementById('typeCycleButton');
+    const customSyntaxInput = document.getElementById('customSyntaxInput');
+    const copyToClipboardButton = document.getElementById('copyToClipboardButton');
+    const exportToFileButton = document.getElementById('exportToFileButton');
+    const changeThemeButton = document.getElementById('changeThemeButton');
+    const darkModeButton = document.getElementById('darkModeButton');
+    const liveCodeButton = document.getElementById('liveCodeButton');
 
-    document.getElementById("darkModeButton").addEventListener("click", function() {
-        document.body.classList.toggle("dark-mode");
-    });
+    let currentDictionary = dictionarySelector.value;
+    let currentSyntax = elslToCppTranslations; // Default to ELSL to C++
+    let isDarkMode = false;
+    let isLiveCoding = false;
 
-    // Additional functionalities like Load Custom Syntax, Refresh Bindings, Save Bindings, etc.
-    // Implement these functionalities as per your requirements
-    document.getElementById("loadCustomSyntaxButton").addEventListener("click", function() {
-        // Implement logic for loading custom syntax here
-    });
-
-    document.getElementById("refreshBindingsButton").addEventListener("click", function() {
-        // Implement logic for refreshing bindings here
-    });
-
-    document.getElementById("saveBindingsButton").addEventListener("click", function() {
-        // Implement logic for saving bindings here
-    });
-
-    function translate(input, dictionary) {
-        // Translation logic goes here
-        var words = input.split(" ");
-        var output = "";
-
-        for (var i = 0; i < words.length; i++) {
-            var word = words[i];
-            if (dictionary.hasOwnProperty(word)) {
-                output += dictionary[word] + " ";
-            } else {
-                output += word + " ";
-            }
-        }
-
-        return output.trim(); // Remove trailing space
+    // Function to translate code
+    function translateCode() {
+        const inputCode = inputElement.value;
+        let translatedCode = translate(inputCode);
+        outputElement.textContent = translatedCode;
     }
+
+    // Function to translate code based on the current dictionary
+    function translate(code) {
+        const syntax = currentSyntax;
+        return code.replace(/{\w+}|[A-Z_]+|[a-z]+|\/\/[^\n]*|\/\*[\s\S]*?\*\/|./g, function (match) {
+            return syntax[match] || match;
+        });
+    }
+
+    // Function to cycle through variable types
+    function cycleTypes() {
+        const typeCycle = typeCycles[currentDictionary];
+        if (typeCycle && typeCycle.length > 0) {
+            const inputCode = inputElement.value;
+            const regex = /int|float|std::string|bool|std::vector|std::map/g;
+            const translatedCode = inputCode.replace(regex, function (match) {
+                const currentIndex = typeCycle.indexOf(match);
+                const nextIndex = (currentIndex + 1) % typeCycle.length;
+                return typeCycle[nextIndex];
+            });
+            inputElement.value = translatedCode;
+            translateCode();
+        }
+    }
+
+    // Event listener for dictionary selection
+    dictionarySelector.addEventListener('change', function () {
+        currentDictionary = dictionarySelector.value;
+        switch (currentDictionary) {
+            case 'elslToCpp':
+                currentSyntax = elslToCppTranslations;
+                break;
+            case 'batToHtmlCssJs':
+                currentSyntax = batToHtmlCssJsTranslations;
+                break;
+            case 'pythonToCpp':
+                currentSyntax = pythonToCppTranslations;
+                break;
+            case 'customToCpp':
+                currentSyntax = customToCppTranslationsWithCustom; // Use custom dictionary
+                break;
+            default:
+                currentSyntax = elslToCppTranslations; // Default to ELSL to C++
+        }
+        translateCode();
+    });
+
+    // Event listener for Translate button
+    translateButton.addEventListener('click', translateCode);
+
+    // Event listener for Type Cycle button
+    typeCycleButton.addEventListener('click', cycleTypes);
+
+    // Event listener for Custom Syntax Input
+    customSyntaxInput.addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                try {
+                    const customSyntax = JSON.parse(reader.result);
+                    customToCppTranslationsWithCustom = Object.assign({}, customToCppTranslations, customSyntax);
+                    translateCode();
+                } catch (error) {
+                    alert('Invalid JSON format in custom syntax file.');
+                }
+            };
+            reader.readAsText(file);
+        }
+    });
+
+    // Event listener for Copy to Clipboard button
+    copyToClipboardButton.addEventListener('click', function () {
+        const textArea = document.createElement('textarea');
+        textArea.value = outputElement.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('Code copied to clipboard!');
+    });
+
+    // Event listener for Export to File button
+    exportToFileButton.addEventListener('click', function () {
+        const code = outputElement.textContent;
+        const blob = new Blob([code], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'translated_code.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+
+    // Event listener for Change Theme button
+    changeThemeButton.addEventListener('click', function () {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+    });
+
+    // Event listener for Dark Mode button
+    darkModeButton.addEventListener('click', function () {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+    });
+
+    // Event listener for Live Coding button
+    liveCodeButton.addEventListener('click', function () {
+        isLiveCoding = !isLiveCoding;
+        if (isLiveCoding) {
+            inputElement.addEventListener('input', translateCode);
+        } else {
+            inputElement.removeEventListener('input', translateCode);
+        }
+    });
+
+    // Initial translation
+    translateCode();
+});
+
+
+
+
+
 </script>
 
 </body>
