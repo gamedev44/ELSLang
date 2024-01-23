@@ -9,59 +9,159 @@
     <meta property="og:type" content="tool" />
     <style>
         body {
-            zoom: 200%;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #151516 0%, #151516 39.6%, rgba(21, 21, 22, 0) 39.6%, rgba(21, 21, 22, 0));
+            background-size: 100% 100%;
         }
-        #output {
-            border: 1px solid #ccc;
+    
+        h1 {
+            color: #FFD700;
             padding: 10px;
-            white-space: pre-wrap;
+            background: linear-gradient(to right, #2e2e2a, #181001);
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
+        h3 {
+            color: #00f7ff;
+            padding: 10px;
+            background: linear-gradient(to right, #2e2e2a, #181001);
+            border-radius: 10px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+    
+    
+        #input-container {
+    position: relative; /* Lock the input in place */
+    top: 20px; /* Adjust the top position as needed */
+    left: 0; /* Align with the left edge */
+    margin-top: 0; /* No need for margin-top since it's positioned */
+    
+}
+
+    
+        #output-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            white-space: pre-wrap;
+            background-color: #f2f2f2;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            margin-top: 20px; /* Separate output from other content */
+            border-radius: 10px;
+            opacity: 0.9;
+            position: relative;
+        }
+    
+        #output-container::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f2f2f2;
+            top: -5px;
+            left: -5px;
+            border-top-left-radius: 50%;
+        }
+    
+        #output-container::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f2f2f2;
+            bottom: -5px;
+            right: -5px;
+            border-bottom-right-radius: 50%;
+        }
+    
         #input {
             width: 100%;
-            height: 150px;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
+    
+        #input::selection {
+            background-color: #FFD700;
+            color: #333;
+        }
+    
         .dark-mode {
             background-color: #333;
             color: #fff;
         }
+    
+        .dark-mode #output-container {
+            background-color: #333;
+            border-color: #666;
+            color: #FFD700;
+        }
+    
         .dropdown {
             position: absolute;
             top: 10px;
             right: 15%;
         }
+    
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: #f9f9f9;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
+            border-radius: 5px;
         }
+    
         .dropdown:hover .dropdown-content {
             display: block;
         }
+    
         .dropdown-button {
-            background-color: transparent;
+            background: linear-gradient(to right, #FFD700, #FFA500);
+            color: #524813;
             border: none;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, opacity 0.3s ease;
         }
+    
         .dropdown-button:hover {
-            background-color: #f1f1f1;
+            background: linear-gradient(to right, #FFA500, #FFD700);
+            opacity: 0.8;
         }
+    
         .bottom-right {
             position: absolute;
             bottom: 10px;
             right: 10px;
         }
+    
+        /* Add this media query for mobile responsiveness */
+        @media (max-width: 768px) {
+            .dropdown {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-top: 10px;
+            }
+    
+            .dropdown-button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
     </style>
+    
+    
 </head>
 <body>
-
 <h1>CodeConvert | ISE</h1>
 <h3>Web-Based | Code Converter by: Mr.AsteRisk</h3>
-
 <!-- Input for code -->
-<textarea id="input" placeholder="Enter your code here..."></textarea>
+<textarea id="input" placeholder="Enter your code here...    -Note: when compiling or using live-code feature you will find your output below or simply export as file to export automatically."></textarea>
 
 <!-- Dropdown menu for selecting the translation dictionary -->
 <select id="dictionarySelector">
@@ -95,7 +195,7 @@
     <button class="dropdown-button">Export</button>
     <div class="dropdown-content">
         <button id="copyToClipboardButton">Copy to Clipboard</button>
-        <button id="exportToFileButton">Export to File</button>
+        <button id="exportToFileButton">Export as File</button>
     </div>
 </div>
 
@@ -297,23 +397,20 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentSyntax = elslToCppTranslations; // Default to ELSL to C++
     let isDarkMode = false;
     let isLiveCoding = false;
-
-    // Function to translate code
+// Function to translate code
     function translateCode() {
         const inputCode = inputElement.value;
         let translatedCode = translate(inputCode);
         outputElement.textContent = translatedCode;
     }
-
-    // Function to translate code based on the current dictionary
+// Function to translate code based on the current dictionary
     function translate(code) {
         const syntax = currentSyntax;
         return code.replace(/{\w+}|[A-Z_]+|[a-z]+|\/\/[^\n]*|\/\*[\s\S]*?\*\/|./g, function (match) {
             return syntax[match] || match;
         });
     }
-
-    // Function to cycle through variable types
+// Function to cycle through variable types
     function cycleTypes() {
         const typeCycle = typeCycles[currentDictionary];
         if (typeCycle && typeCycle.length > 0) {
@@ -328,8 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
             translateCode();
         }
     }
-
-    // Event listener for dictionary selection
+// Event listener for dictionary selection
     dictionarySelector.addEventListener('change', function () {
         currentDictionary = dictionarySelector.value;
         switch (currentDictionary) {
@@ -350,14 +446,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         translateCode();
     });
-
-    // Event listener for Translate button
+// Event listener for Translate button
     translateButton.addEventListener('click', translateCode);
-
-    // Event listener for Type Cycle button
+// Event listener for Type Cycle button
     typeCycleButton.addEventListener('click', cycleTypes);
-
-    // Event listener for Custom Syntax Input
+// Event listener for Custom Syntax Input
     customSyntaxInput.addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
@@ -374,7 +467,6 @@ document.addEventListener('DOMContentLoaded', function () {
             reader.readAsText(file);
         }
     });
-
     // Event listener for Copy to Clipboard button
     copyToClipboardButton.addEventListener('click', function () {
         const textArea = document.createElement('textarea');
@@ -386,32 +478,49 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Code copied to clipboard!');
     });
 
-    // Event listener for Export to File button
-    exportToFileButton.addEventListener('click', function () {
+  // Event listener for Export to File button
+exportToFileButton.addEventListener('click', function () {
+    // Prompt the user to enter a filename
+    const filename = prompt("Enter a filename (e.g., filename.html, filename.cpp, filename.h):");
+    
+    if (filename) {
         const code = outputElement.textContent;
         const blob = new Blob([code], { type: 'text/plain' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'translated_code.txt';
+        a.download = filename; // Set the user-entered filename
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    });
+    }
+});
 
-    // Event listener for Change Theme button
-    changeThemeButton.addEventListener('click', function () {
-        isDarkMode = !isDarkMode;
-        document.body.classList.toggle('dark-mode', isDarkMode);
-    });
+
+
+       
+
+   // Event listener for Change Theme button (to change background)
+changeThemeButton.addEventListener('click', function () {
+    function changeTheme() {
+        var imageUrl = prompt("Enter the URL of the background image to change the theme:");
+        if (imageUrl) {
+            document.body.style.backgroundImage = 'url(' + imageUrl + ')';
+        }
+    }
+    changeTheme(); // Call the changeTheme function to prompt for the image URL
+});
 
     // Event listener for Dark Mode button
     darkModeButton.addEventListener('click', function () {
         isDarkMode = !isDarkMode;
-        document.body.classList.toggle('dark-mode', isDarkMode);
-    });
+        document.body.classList.toggle('dark-mode', isDarkMode)
+        const availableThemes = ['default', 'dark', 'light']; // Define available themes
+    currentThemeIndex = (currentThemeIndex + 1) % availableThemes.length;
+    const selectedTheme = availableThemes[currentThemeIndex];
 
+    });
     // Event listener for Live Coding button
     liveCodeButton.addEventListener('click', function () {
         isLiveCoding = !isLiveCoding;
@@ -421,16 +530,10 @@ document.addEventListener('DOMContentLoaded', function () {
             inputElement.removeEventListener('input', translateCode);
         }
     });
-
     // Initial translation
     translateCode();
 });
-
-
-
-
-
+// code by mr.asterisk
 </script>
-
 </body>
 </html>
