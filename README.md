@@ -1,4 +1,4 @@
-# ELSLang CodeConverter /Transpiler ++ 
+# ELSLang CodeConverter I.D.E | Transpiler ++ 
 
 ![ELSL++ Transterpreter](https://gcdnb.pbrd.co/images/B6w5JQkpm0Ot.png?o=1)
 
