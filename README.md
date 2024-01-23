@@ -4,7 +4,7 @@
 
 ## Overview
 
-The ELSL++ Transterpreter is a customizable scripting translator tool designed to make programming more accessible for individuals who want to learn at their own pace, using their own words. Originally inspired by the ELSL to C++ Translator and based on the bat2html converter by PGD, this tool allows you to write code in a simplified scripting language (ELSL) and translates it into C++ code, ready for compilation.
+The ELSL++ Transterpreter is a customizable scripting translator tool designed to make programming more accessible for individuals who want to learn at their own pace, using their own words. Originally inspired by the ELSL to C++ Translator and based on the bat2html converter by PGD, this tool allows you to write code in a one language and translates it into C++ code or another of your choice via the drop down near Transpile button, ready for compilation via On the fly interpretation.
 
 ### Features
 
