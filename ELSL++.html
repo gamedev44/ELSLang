@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #151516 0%, #151516 39.6%, rgba(21, 21, 22, 0) 39.6%, rgba(21, 21, 22, 0));
+            background: linear-gradient(to bottom, #000000 0%, #151516 39.6%, rgba(21, 21, 22, 0) 39.6%, rgba(21, 21, 22, 0));
             background-size: 100% 100%;
         }
     
@@ -39,17 +39,18 @@
 }
 
     
-        #output-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            white-space: pre-wrap;
-            background-color: #f2f2f2;
-            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-            margin-top: 20px; /* Separate output from other content */
-            border-radius: 10px;
-            opacity: 0.9;
-            position: relative;
-        }
+#output-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    white-space: pre-wrap;
+    background-color: #111010;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    margin-top: 20px; /* Separate output from other content */
+    border-radius: 10px;
+    opacity: 0.9;
+    position: relative;
+    color: rgb(28, 28, 247); /* Add this line to change the text color to blue */
+}
     
         #output-container::before {
             content: "";
@@ -83,19 +84,31 @@
     
         #input::selection {
             background-color: #FFD700;
-            color: #333;
+            color: #000000;
         }
     
         .dark-mode {
-            background-color: #333;
-            color: #fff;
-        }
-    
-        .dark-mode #output-container {
-            background-color: #333;
-            border-color: #666;
-            color: #FFD700;
-        }
+    background-color: #000000; /* Dark background */
+    color: #00fffb /* Light text */
+    filter: invert(1);
+}
+}
+
+.dark-mode h1, .dark-mode h3 {
+    color: #FFD700; /* Keeping the headers golden */
+}
+
+.dark-mode #output-container {
+    background-color: #1a1a1a; /* Slightly lighter dark background for contrast */
+    color: #00ff00; /* Change text color to green for visibility */
+}
+
+
+
+
+
+/* Add other elements as needed */
+
     
         .dropdown {
             position: absolute;
@@ -125,7 +138,7 @@
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, opacity 0.3s ease;
+            transition: background 0.4s ease, opacity 0.4s ease;
         }
     
         .dropdown-button:hover {
@@ -420,16 +433,14 @@ var customToCppDictionary = {
     'input': 'std::cin >>',     // Input
     'output': 'std::cout <<',   // Output
 };
-
-    // Define type cycles for each variable type in all four languages
+// Define type cycles for each variable type in all four languages
     var typeCycles = {
         'elslToCpp': ['int', 'bool', 'std::string', 'std::vector', 'struct', 'const', 'double', 'float'],
         'batToHtmlCssJs': ['Number', 'String'],
         'pythonToCpp': ['int', 'float', 'std::string', 'bool', 'std::vector', 'std::map'],
         'customToCpp': [] // Add your custom variable types here
     };
-
-    // JavaScript code for translation and type cycles
+// JavaScript code for translation and type cycles
     // ...
     // JavaScript code for translation and type cycles
 document.addEventListener('DOMContentLoaded', function () {
@@ -529,8 +540,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.removeChild(textArea);
         alert('Code copied to clipboard!');
     });
-
-  // Event listener for Export to File button
+// Event listener for Export to File button
 exportToFileButton.addEventListener('click', function () {
     // Prompt the user to enter a filename
     const filename = prompt("Enter a filename (e.g., filename.html, filename.cpp, filename.h):");
@@ -548,12 +558,7 @@ exportToFileButton.addEventListener('click', function () {
         URL.revokeObjectURL(url);
     }
 });
-
-
-
-       
-
-   // Event listener for Change Theme button (to change background)
+// Event listener for Change Theme button (to change background)
 changeThemeButton.addEventListener('click', function () {
     function changeTheme() {
         var imageUrl = prompt("Enter the URL of the background image to change the theme:");
@@ -583,7 +588,13 @@ changeThemeButton.addEventListener('click', function () {
     // Initial translation
     translateCode();
 });
+
 // code by mr.asterisk semi-open source to chosen parties and dev's who contribute.
+
+
 </script>
+
+
+
 </body>
 </html>
