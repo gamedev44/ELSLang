@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>CodeConvert.com | I.S.E</title>
-    <meta property="og:title" content="ESLS++" />
+    <meta property="og:title" content="CodeConvert | ISE / Transpiler" />
     <meta property="og:description" content="A tool created to make programming easier." />
     <meta property="og:url" content="https://indieunlimited.com/PGD" />
-    <meta property="og:image" content="https://camo.githubusercontent.com/843d03d6e4145ba7b01802349a5f1bd266da851fcd6c0d384749b2240411c96f/68747470733a2f2f6763646e622e706272642e636f2f696d616765732f6234417866556b72786c74492e706e673f6f3d31" />
-    <meta property="og:type" content="tool" />
+    <meta property="og:image" content="https://gcdnb.pbrd.co/images/B6w5JQkpm0Ot.png?o=1"/>
+    <meta property="og:type" content="website" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -364,18 +364,62 @@
         // Add more based on Python syntax and C++ equivalents
     };
 
-    // Your custom CustomToCpp translations
-    var customToCppTranslations = {
-        // Add your custom translations here
-        'CUSTOM_COMMAND': 'custom_translation',
-        // ...
-    };
+   // Custom translations for different code languages
 
 
-    
-    
-    // Merge the custom translations with the default CustomToCpp translations
-    var customToCppTranslationsWithCustom = Object.assign({}, customToCppTranslations);
+
+// Merge custom translations with default CustomToCpp translations
+var customToCppDictionary = {
+    // Comments
+    'echo': '//',               // Use 'echo' for comments in UE5.3.2 C++
+
+    // Data Types
+    'var': 'auto',              // Auto type for variables
+    'bool': 'bool',             // Boolean
+    'int': 'int32',             // Integer (changed to int32 for UE5.3.2)
+    'float': 'float',           // Float
+    'spfloat': 'float',         // Single-precision float
+    'dpfloat': 'double',        // Double-precision float
+    'string': 'FString',        // FString (changed to FString for UE5.3.2)
+
+    // Functions
+    'function': 'void',         // Function
+    'return': 'return',         // Return
+    'public': 'public',         // Public access
+    'private': 'private',       // Private access
+    'protected': 'protected',   // Protected access
+
+    // Variable Types
+    'const': 'const',           // Constant
+    'inline': 'inline',         // Inline
+    'virtual': 'virtual',       // Virtual
+    'override': 'override',     // Override
+
+    // Loops
+    'repeat': 'for',            // For loop
+    'while': 'while',           // While loop
+    'do': 'do',                 // Do-while loop
+    'for': 'for',               // For loop
+
+    // Control Statements
+    'if': 'if',                 // If
+    'else': 'else',             // Else
+    'switch': 'switch',         // Switch
+    'case': 'case',             // Case
+    'break': 'break',           // Break
+    'continue': 'continue',     // Continue
+
+    // Operators and Symbols
+    '(': '(',                   // Parentheses
+    ')': ')',                   // Parentheses
+    '{': '{',                   // Curly braces
+    '}': '}',                   // Curly braces
+    ',': ',',                   // Comma
+
+    // Input and Output
+    'input': 'std::cin >>',     // Input
+    'output': 'std::cout <<',   // Output
+};
 
     // Define type cycles for each variable type in all four languages
     var typeCycles = {
@@ -504,6 +548,9 @@ exportToFileButton.addEventListener('click', function () {
         URL.revokeObjectURL(url);
     }
 });
+
+
+
        
 
    // Event listener for Change Theme button (to change background)
@@ -516,7 +563,6 @@ changeThemeButton.addEventListener('click', function () {
     }
     changeTheme(); // Call the changeTheme function to prompt for the image URL
 });
-
     // Event listener for Dark Mode button
     darkModeButton.addEventListener('click', function () {
         isDarkMode = !isDarkMode;
@@ -524,7 +570,6 @@ changeThemeButton.addEventListener('click', function () {
         const availableThemes = ['default', 'dark', 'light']; // Define available themes
     currentThemeIndex = (currentThemeIndex + 1) % availableThemes.length;
     const selectedTheme = availableThemes[currentThemeIndex];
-
     });
     // Event listener for Live Coding button
     liveCodeButton.addEventListener('click', function () {
@@ -538,8 +583,7 @@ changeThemeButton.addEventListener('click', function () {
     // Initial translation
     translateCode();
 });
-
-// code by mr.asterisk
-</script> 
+// code by mr.asterisk semi-open source to chosen parties and dev's who contribute.
+</script>
 </body>
 </html>
