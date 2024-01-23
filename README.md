@@ -2,31 +2,32 @@
 
 ![ELSL++ Transterpreter](https://gcdnb.pbrd.co/images/B6w5JQkpm0Ot.png?o=1)
 
+
+
 ## Overview
+The ELSL++ Transterpreter is a customizable scripting translator tool designed to make programming more accessible for individuals who want to learn at their own pace, using their own words. Originally inspired by the ELSL to C++ Translator and based on the bat2html converter by PGD, this tool allows you to write code in one language and translates it into C++ code or another language of your choice via the drop-down menu, ready for compilation via On-the-fly interpretation.
 
-The ELSL++ Transterpreter is a customizable scripting translator tool designed to make programming more accessible for individuals who want to learn at their own pace, using their own words. Originally inspired by the ELSL to C++ Translator and based on the bat2html converter by PGD, this tool allows you to write code in a one language and translates it into C++ code or another of your choice via the drop down near Transpile button, ready for compilation via On the fly interpretation.
-
-### Features
-
-- Customizable syntax translations: You can define your own translations for ELSL keywords and symbols to target C++ code.
-- Live Coding: Enable live coding to see the translated code update in real-time as you type.
-- Dark Mode: Toggle dark mode for a different visual experience.
-- Type Cycling: Easily switch between variable types (int, bool, std::string, etc.) with a keystroke.
-- Save and Load Bindings: Customize your translations and save them for future use.
+## Features
+- **Customizable Syntax Translations:** Define your own translations for ELSL keywords and symbols to target C++ code or other languages.
+- **Live Coding:** Enable live coding to see the translated code update in real-time as you type.
+- **Direct Compilation to C++:** Compile your code directly to C++.
+- **Export Options:** Easily export your translated code in various formats.
+- **Theme Customization:** Change the tool's theme for a personalized experience.
+- **Dark and Light Modes:** Toggle between dark and light modes for different visual styles.
+- **Professional GUI:** Enjoy a clean and professional graphical user interface.
+- And many more features to enhance your coding experience.
 
 ## Getting Started
-
 ### Prerequisites
-
 - A modern web browser (Chrome, Firefox, Edge, etc.)
 
 ### Usage
-
 1. Clone or download the repository to your local machine.
 
-2. Open the `ELSL++.html` file in a web browser or simply by doubl clicking aternatively open in Cmd.exe using the command below.
-
- command: start ELSL++.html
+2. Open the `ELSL++.html` file in a web browser or simply by double-clicking. Alternatively, open it in `Cmd.exe` using the command below:
+   ```shell
+   command: start ELSL++.html
+   ```
 
 3. Enter your ELSL code in the textarea under "Enter your ELSL code here..."
 
@@ -48,15 +49,13 @@ The ELSL++ Transterpreter is a customizable scripting translator tool designed t
    - Use "Export to File" to save the translated code as a file with options to choose the file type (e.g., .cpp, .h, .js, .py, etc.).
 
 ## Contributing
-
-Contributions are semi open source but still fully welcome! Feel free to fork this repository, make improvements, and submit push & pull requests as long as you credit us for out work and leave our security seal in here .
-
-
+Contributions are semi open source but still fully welcome! Feel free to fork this repository, make improvements, and submit push & pull requests as long as you credit us for our work and leave our security seal in here.
 
 ## Acknowledgments
-
 - Inspired by the ELSL to C++ Translator and the bat2html converter by PGD.
 - Created by Mr. Asterisk to empower individuals to learn programming their way.
 
 ## Security Seal
-@PGD original code By:mr.asterisk
+@PGD original code By: mr.asterisk
+```
+```
